@@ -107,7 +107,7 @@ public class Home extends JFrame {
 	 */
 	public Home() {
 		
-		setBounds(0, 0, 600, 500);
+		setBounds(0, 0, 252, 52);
 		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
