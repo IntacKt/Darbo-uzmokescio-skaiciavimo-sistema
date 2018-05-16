@@ -189,8 +189,6 @@ public class Add_Record extends JFrame {
 		ButtonGroup bG = new ButtonGroup();
 	     bG.add(rdbtnMale);
 	     bG.add(rdbtnFemale);
-	   
-	   //  System.out.println(bG.getSelection().getActionCommand());
 		
 		rdbtnFemale.setBounds(224, 411, 88, 23);
 		contentPane.add(rdbtnMale);
@@ -213,9 +211,9 @@ public class Add_Record extends JFrame {
 		contentPane.add(dateChooser);
 
 		
-		String[] c= new String[]{"U.S","India","U.K","Japan","China"};
+		String[] c= new String[]{"Lithuania", "U.S", "India", "U.K", "Japan", "China"};
 		JComboBox comboBox = new JComboBox(c);
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"U.S", "India", "U.K", "Japan", "China", "Lithuania"}));
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Lithuania", "U.S", "India", "U.K", "Japan", "China"}));
 		comboBox.setBounds(125, 457, 133, 20);
 		contentPane.add(comboBox);
 		

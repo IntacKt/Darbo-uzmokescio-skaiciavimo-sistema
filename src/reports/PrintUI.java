@@ -57,7 +57,6 @@ public class PrintUI implements Printable, ActionListener {
     	    int max = 100;
     	    JProgressBar progress = new JProgressBar(min, max);
 
-    	    // Play animation
     	    progress.setIndeterminate(true);
 
         final JButton printButton = new JButton("Print");

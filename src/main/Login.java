@@ -226,7 +226,6 @@ public class Login {
 						e1.printStackTrace();
 						JOptionPane.showMessageDialog(null, e1);
 				}
-				//System.out.println(query);
 			}
 		});
 		button.setBounds(255, 206, 90, 23);

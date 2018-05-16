@@ -59,7 +59,6 @@ public class IncentivesReport extends JFrame {
 		setBounds(100, 100, 1400, 750);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(153, 204, 153));
-		//contentPane.setBackground(SystemColor.activeCaption);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);

@@ -82,7 +82,6 @@ public class Incentives extends JFrame {
 		setBounds(0, 0, 630, 430);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(153, 204, 153));
-		//contentPane.setBackground(SystemColor.activeCaption);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);

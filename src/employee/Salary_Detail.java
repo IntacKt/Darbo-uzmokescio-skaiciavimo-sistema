@@ -175,7 +175,6 @@ public class Salary_Detail extends JFrame {
 				String byr = textField_2.getText().toString();
 				String nt =  textArea.getText().toString();
 				String sal = textField_3.getText().toString();
-			//	System.out.print(byr);
 				
 				try {
 				String sql = "insert into salary(salary_id,emp_id_salary,salary,baseryr,note) "

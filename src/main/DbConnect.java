@@ -14,7 +14,6 @@ public class DbConnect {
         try {
         	Class.forName("com.mysql.jdbc.Driver");
 			Connection conn = DriverManager.getConnection(host, uName, uPass);
-		//	JOptionPane.showMessageDialog(null, "Connection Successful");
 			System.out.println("Connected");
 			return conn;
 		} catch (SQLException | ClassNotFoundException e) {

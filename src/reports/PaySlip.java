@@ -107,7 +107,6 @@ public class PaySlip extends JFrame implements Printable {
 		setBounds(0, 0, 440, 590);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(153, 204, 153));
-		//contentPane.setBackground(SystemColor.activeCaption);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -166,7 +165,6 @@ public class PaySlip extends JFrame implements Printable {
 		JDateChooser dateChooser = new JDateChooser();
 		dateChooser.setBounds(171, 199, 137, 20);
 		dateChooser.setDate(d);
-		//dateChooser.setDateFormatString("yyyy-MM-dd");
 		contentPane.add(dateChooser);
 		
 		JLabel lblBasicSalary = new JLabel("Basic Salary");
@@ -438,7 +436,14 @@ public class PaySlip extends JFrame implements Printable {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
+				double totalInc =  Double.parseDouble((textField_16.getText().toString()));
+				double amount =  Double.parseDouble((textField_10.getText().toString()));
+				double salary = Double.parseDouble((textField_4.getText().toString()));
 				
+				double deducSal = salary - amount;
+				textField_17.setText(String.valueOf(deducSal));
+				double  totalnp = deducSal + totalInc;
+				textField_17.setText(String.valueOf(totalnp));
 				
 			}
 		});

@@ -76,7 +76,6 @@ public class BasicSalary extends JFrame {
 		setBounds(0, 0, 620, 300);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(153, 204, 153));
-		//contentPane.setBackground(SystemColor.activeCaption);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		

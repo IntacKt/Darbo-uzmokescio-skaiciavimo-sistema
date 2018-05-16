@@ -96,10 +96,10 @@ public class DeleteRecord extends JFrame {
 		
 		conn = DbConnect.doConnect();
 		
-		JLabel lblPayrollManagementSystem = new JLabel("Salary Calculation System");
-		lblPayrollManagementSystem.setBounds(232, 11, 275, 40);
-		lblPayrollManagementSystem.setFont(new Font("Roboto",Font.BOLD,22));
-		contentPane.add(lblPayrollManagementSystem);
+		JLabel lblSalaryCalculationSystem = new JLabel("Salary Calculation System");
+		lblSalaryCalculationSystem.setBounds(232, 11, 275, 40);
+		lblSalaryCalculationSystem.setFont(new Font("Roboto",Font.BOLD,22));
+		contentPane.add(lblSalaryCalculationSystem);
 		
 		JSeparator separator = new JSeparator();
 		separator.setBounds(37, 106, 662, 2);
@@ -198,7 +198,7 @@ public class DeleteRecord extends JFrame {
 		Date dateFromDateChooser = (Date) dateChooser.getDate();
 		contentPane.add(dateChooser);
 		
-		String[] c= new String[]{"U.S","India","U.K","Japan","China"};
+		String[] c= new String[]{"Lithuania", "U.S", "India", "U.K", "Japan", "China"};
 		JComboBox comboBox = new JComboBox(c);
 		comboBox.setBounds(140, 515, 187, 20);
 		contentPane.add(comboBox);

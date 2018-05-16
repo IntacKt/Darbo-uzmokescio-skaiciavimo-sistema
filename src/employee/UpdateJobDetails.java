@@ -71,7 +71,6 @@ public class UpdateJobDetails extends JFrame {
 		setBounds(100, 100, 330, 420);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(153, 204, 153));
-		//contentPane.setBackground(SystemColor.activeCaption);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -104,7 +103,6 @@ public class UpdateJobDetails extends JFrame {
 		
 		textField = new JTextField();
 		textField.setBounds(113, 130, 187, 20);
-		//textField.setBounds(178, 103, 140, 20);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
