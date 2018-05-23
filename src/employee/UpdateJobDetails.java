@@ -36,8 +36,6 @@ import javax.swing.SwingConstants;
 public class UpdateJobDetails extends JFrame {
 
 	private JPanel contentPane;
-
-	private JTextField textField;
 	private JTextField textField_1;
 	Connection conn;
     Statement stmt;
@@ -68,9 +66,9 @@ public class UpdateJobDetails extends JFrame {
 	public UpdateJobDetails() {
 		setTitle("Update Job Details");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 330, 420);
+		setBounds(100, 100, 330, 424);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(153, 204, 153));
+		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -87,47 +85,36 @@ public class UpdateJobDetails extends JFrame {
 		separator.setBounds(10, 73, 290, 8);
 		contentPane.add(separator);
 		
-		JLabel lblSalaryId = new JLabel("Job ID");
-		lblSalaryId.setBounds(22, 133, 43, 14);
-		contentPane.add(lblSalaryId);
-		
 		JLabel lblEmplyeeId = new JLabel("Job Title");
-		lblEmplyeeId.setBounds(22, 175, 81, 14);
+		lblEmplyeeId.setBounds(22, 139, 81, 14);
 		contentPane.add(lblEmplyeeId);
 		
 		JLabel lblBaseYear = new JLabel("Job Description");
-		lblBaseYear.setBounds(22, 214, 95, 14);
+		lblBaseYear.setBounds(22, 178, 95, 14);
 		contentPane.add(lblBaseYear);
 		
-		
-		
-		textField = new JTextField();
-		textField.setBounds(113, 130, 187, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
-		
 		textField_1 = new JTextField();
-		textField_1.setBounds(113, 172, 187, 20);
+		textField_1.setBounds(113, 136, 187, 20);
 		textField_1.setColumns(10);
 		contentPane.add(textField_1);
 		
 		
 		
 		JTextArea textArea_1 = new JTextArea();
-		textArea_1.setBounds(113, 214, 187, 77);
+		textArea_1.setBackground(Color.LIGHT_GRAY);
+		textArea_1.setBounds(113, 178, 187, 77);
 		contentPane.add(textArea_1);
 		
 		
 		JLabel label = new JLabel("");
 		label.setFont(new Font("Tahoma", Font.BOLD, 11));
-		label.setBounds(543, 148, 139, 14);
+		label.setBounds(90, 322, 139, 14);
 		contentPane.add(label);
 	
 		
 		try {
 			stmt = conn.createStatement();
 		} catch (SQLException e2) {
-			// TODO Auto-generated catch block
 			e2.printStackTrace();
 		}
 		
@@ -151,7 +138,6 @@ public class UpdateJobDetails extends JFrame {
 						    label.setText("No Record Found");
 						    java.util.Date d = new java.util.Date();
 						    d.toString();
-						    textField.setText("");
 							textField_1.setText("");
 							textArea_1.setText("");
 							label_1.setText("");
@@ -162,7 +148,6 @@ public class UpdateJobDetails extends JFrame {
 							
 						while(rs.next()){
 							label.setText("");
-							textField.setText(rs.getString("job_id"));
 							textField_1.setText(rs.getString("job_title"));
 							textArea_1.setText(rs.getString("job_desc"));
 						}
@@ -171,7 +156,6 @@ public class UpdateJobDetails extends JFrame {
 						
 						
 					} catch (SQLException e1) {
-						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					} 
 			}
@@ -183,25 +167,23 @@ public class UpdateJobDetails extends JFrame {
 		srchfldEnterJobId.setBounds(113, 92, 145, 22);
 		contentPane.add(srchfldEnterJobId);
 		JButton button = new JButton("Update Details");
-		button.setBounds(22, 302, 127, 34);
+		button.setBounds(22, 266, 127, 34);
 		
 		button.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				String jid = textField.getText().toString();
 				String jt = textField_1.getText();
 				String jd  = textArea_1.getText().toString();
 				try {
-				String sql = "update job_title set job_id = '"+jid+"', job_title = '"+jt+"', job_desc ='"+jd+"' where emp_id_job ='"+srchfldEnterJobId.getText().toString()+"'";
+				String sql = "update job_title set job_title = '"+jt+"', job_desc ='"+jd+"' where emp_id_job ='"+srchfldEnterJobId.getText().toString()+"'";
 					
 				System.out.println(sql);
 				label_1.setText("Your Record Successfully Updated");
 					
 					stmt.executeUpdate(sql);
 				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 				
@@ -210,14 +192,8 @@ public class UpdateJobDetails extends JFrame {
 		contentPane.add(button);
 		
 		JButton button_1 = new JButton("Cancel");
-		button_1.setBounds(173, 302, 127, 34);
+		button_1.setBounds(173, 266, 127, 34);
 		contentPane.add(button_1);
-		
-
-		PromptSupport.setPrompt("Enter Employee ID", textField);
-		PromptSupport.setFocusBehavior(FocusBehavior.SHOW_PROMPT, textField);
-		PromptSupport.setFontStyle(Font.ITALIC, textField);
-		PromptSupport.setForeground(Color.darkGray, textField);
 		
 
 		PromptSupport.setPrompt("Enter Job Title", textField_1);
@@ -231,25 +207,10 @@ public class UpdateJobDetails extends JFrame {
 		PromptSupport.setFontStyle(Font.ITALIC, textArea_1);
 		PromptSupport.setForeground(Color.darkGray, textArea_1);
 		
-		JLabel label_2 = new JLabel("");
-		label_2.setHorizontalAlignment(SwingConstants.CENTER);
-		label_2.setVerticalAlignment(SwingConstants.TOP);
-		label_2.setIcon(new ImageIcon("D:\\Projects\\Universitetas\\Bakalaurinis\\Darbo uzmokescio skaiciavimo sistema\\src\\aboutus\\r.jpg"));
-		label_2.setBounds(0, 0, 373, 420);
-		contentPane.add(label_2);
-		
-		
-		
-		
 	button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 			}
 		});
-		
-		
-		
-
-		
 	}
 }

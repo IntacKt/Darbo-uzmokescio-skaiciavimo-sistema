@@ -51,7 +51,7 @@ public class About extends JFrame {
 		setBounds(0, 0, 800, 400);
 		contentPane = new JPanel();
 		contentPane.setBorder(null);
-		contentPane.setBackground(new Color(51, 204, 153));
+		contentPane.setBackground(Color.WHITE);
 		setContentPane(contentPane);
 		
 		JLabel lblSalarySystem = new JLabel("1.0");
@@ -64,7 +64,7 @@ public class About extends JFrame {
 		
 		JLabel lblLaimis = new JLabel("Laimonas Kazenas PRIf-14/2");
 		lblLaimis.setBounds(497, 124, 216, 20);
-		lblLaimis.setForeground(new Color(204, 51, 51));
+		lblLaimis.setForeground(Color.BLACK);
 		lblLaimis.setFont(new Font("Roboto", Font.BOLD, 15));
 		
 		JLabel lblWindowsPro = new JLabel("Windows 10 Pro");
@@ -105,12 +105,6 @@ public class About extends JFrame {
 		lblSalaryCalculationSystem.setForeground(new Color(0, 0, 0));
 		lblSalaryCalculationSystem.setBackground(new Color(102, 102, 255));
 		lblSalaryCalculationSystem.setFont(new Font("Raleway", Font.BOLD, 18));
-		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setBounds(0, 0, 825, 388);
-		lblNewLabel.setVerticalAlignment(SwingConstants.TOP);
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setIcon(new ImageIcon("D:\\Projects\\Universitetas\\Bakalaurinis\\Darbo uzmokescio skaiciavimo sistema\\src\\aboutus\\r.jpg"));
 		contentPane.setLayout(null);
 		contentPane.add(lblSalarySystem);
 		contentPane.add(lblLanguage);
@@ -124,7 +118,6 @@ public class About extends JFrame {
 		contentPane.add(lblThisSoftwareIs);
 		contentPane.add(lblVersion);
 		contentPane.add(lblSalaryCalculationSystem);
-		contentPane.add(lblNewLabel);
 		
 		
 	}

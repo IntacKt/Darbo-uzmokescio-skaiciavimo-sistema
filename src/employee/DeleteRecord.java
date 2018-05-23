@@ -42,6 +42,7 @@ import com.toedter.calendar.JDateChooser;
 
 import java.awt.SystemColor;
 import javax.swing.ImageIcon;
+import javax.swing.DefaultComboBoxModel;
 
 
 public class DeleteRecord extends JFrame {
@@ -50,22 +51,14 @@ public class DeleteRecord extends JFrame {
 	
 
 	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
 	private JTextField textField_4;
 	private JTextField textField_5;
-	private JTextField textField_6;
-	private JTextField textField_7;
 	
 	Connection conn;
     Statement stmt;
     ResultSet rs;
     private JTextField textField_8;
-
-	/**
-	 * Launch the application.
-	 */
+    
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -79,17 +72,13 @@ public class DeleteRecord extends JFrame {
 			}
 		});
 	}
-
-	/**
-	 * Create the frame.
-	 */
+	
 	public DeleteRecord() {
 		setTitle("Delete Employee");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 750, 700);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(153, 204, 153));
-		//contentPane.setBackground(SystemColor.activeCaption);
+		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -118,20 +107,12 @@ public class DeleteRecord extends JFrame {
 		lblDepartmentId.setBounds(38, 232, 100, 14);
 		contentPane.add(lblDepartmentId);
 		
-		JLabel lblJobId = new JLabel("Job ID");
-		lblJobId.setBounds(38, 271, 73, 14);
-		contentPane.add(lblJobId);
-		
-		JLabel lblEmployeeTypeId = new JLabel("Employee Type ID");
-		lblEmployeeTypeId.setBounds(38, 315, 125, 20);
-		contentPane.add(lblEmployeeTypeId);
-		
 		JLabel lblFirstName = new JLabel("First Name");
-		lblFirstName.setBounds(38, 355, 67, 14);
+		lblFirstName.setBounds(37, 260, 67, 14);
 		contentPane.add(lblFirstName);
 		
 		JLabel lblLastName = new JLabel("Last Name");
-		lblLastName.setBounds(38, 394, 73, 14);
+		lblLastName.setBounds(37, 299, 73, 14);
 		contentPane.add(lblLastName);
 		
 		textField = new JTextField();
@@ -139,44 +120,29 @@ public class DeleteRecord extends JFrame {
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(140, 229, 187, 20);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
-		
-		textField_2 = new JTextField();
-		textField_2.setBounds(140, 268, 187, 20);
-		contentPane.add(textField_2);
-		textField_2.setColumns(10);
-		
-		textField_3 = new JTextField();
-		textField_3.setBounds(140, 312, 187, 20);
-		contentPane.add(textField_3);
-		textField_3.setColumns(10);
-		
 		textField_4 = new JTextField();
-		textField_4.setBounds(140, 352, 187, 20);
+		textField_4.setBounds(139, 257, 187, 20);
 		contentPane.add(textField_4);
 		textField_4.setColumns(10);
 		
 		textField_5 = new JTextField();
-		textField_5.setBounds(140, 391, 187, 20);
+		textField_5.setBounds(139, 296, 187, 20);
 		contentPane.add(textField_5);
 		textField_5.setColumns(10);
 		
 		JLabel lblDob = new JLabel("DOB");
-		lblDob.setBounds(38, 439, 73, 14);
+		lblDob.setBounds(37, 344, 73, 14);
 		contentPane.add(lblDob);
 		
 		JLabel lblGender = new JLabel("Gender");
-		lblGender.setBounds(38, 473, 67, 14);
+		lblGender.setBounds(37, 378, 67, 14);
 		contentPane.add(lblGender);
 		
 		JRadioButton rdbtnMale = new JRadioButton("Male");
 		rdbtnMale.setActionCommand("Male");
 		JRadioButton rdbtnFemale = new JRadioButton("Female");
 		rdbtnFemale.setActionCommand("Female");
-		rdbtnMale.setBounds(140, 469, 55, 23);
+		rdbtnMale.setBounds(139, 374, 55, 23);
 		ButtonGroup bG = new ButtonGroup();
 	     bG.add(rdbtnMale);
 	     bG.add(rdbtnFemale);
@@ -184,7 +150,7 @@ public class DeleteRecord extends JFrame {
 	    
 		
 		
-		rdbtnFemale.setBounds(219, 469, 59, 23);
+		rdbtnFemale.setBounds(218, 374, 59, 23);
 		contentPane.add(rdbtnMale);
 		contentPane.add(rdbtnFemale);
 		
@@ -192,38 +158,47 @@ public class DeleteRecord extends JFrame {
 	
 		
 		JDateChooser dateChooser = new JDateChooser();
-		dateChooser.setBounds(139, 433, 188, 20);
+		dateChooser.setBounds(138, 338, 188, 20);
 		dateChooser.setDateFormatString("yyyy-MM-dd");
 		
 		Date dateFromDateChooser = (Date) dateChooser.getDate();
 		contentPane.add(dateChooser);
 		
+		String[] d= new String[]{"", "34KC", "30KA", "25KE", "28KU", "35KT"};
+		JComboBox comboBox_1 = new JComboBox();
+		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"", "34KC", "30KA", "25KE", "28KU", "35KT"}));
+		comboBox_1.setBounds(140, 229, 187, 20);
+		contentPane.add(comboBox_1);
+		
+		String[] s= new String[]{"", "Vilnius City Municipality", "Kaunas City Municipality", "Klaipeda City Municipality", "Panevezys City Municipality", "Siauliai City Municipality", "Alytus City Municipality", "Birstonas Municipality", "Palanga City Municipality", "Visaginas Municipality", "Neringa Municipality", "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"};
+		JComboBox comboBox_2 = new JComboBox();
+		comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"", "Vilnius City Municipality", "Kaunas City Municipality", "Klaipeda City Municipality", "Panevezys City Municipality", "\u0160iauliai City Municipality", "Alytus City Municipality", "Birstonas Municipality", "Palanga City Municipality", "Visaginas Municipality", "Neringa Municipality", "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jammu and Kashmir", "Jharkhand", "Karnataka", "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu", "Telangana", "Tripura", "Uttar Pradesh", "Uttarakhand", "West Bengal", "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"}));
+		comboBox_2.setBounds(485, 204, 187, 20);
+		contentPane.add(comboBox_2);
+		
+		String[] m= new String[] {"", "Vilnius", "Kaunas", "Siauliai", "Panevezys", "Klaipeda", "New York", "Los Angeles", "Chicago", "Houston", "Phoenix", "Philadelphia", "San Antonio", "San Diego", "Dallas", "Austin", "San Francisco", "Columbus", "Indianapolis", "Denver", "Washington", "Boston", "Detroit", "Nashville", "Oklahoma City", "Las Vegas", "Milwaukee", "Sacramento", "Atlanta", "Raleigh", "Saint Paul", "Nashik", "Faridabad", "Meerut", "Rajkot", "Kalyan-Dombivali", "Vasai-Virar", "Varanasi", "Srinagar", "Aurangabad", "Dhanbad", "Amritsar", "Navi Mumbai", "Allahabad", "Ranchi"};
+		JComboBox comboBox_3 = new JComboBox();
+		comboBox_3.setModel(new DefaultComboBoxModel(new String[] {"", "Vilnius", "Kaunas", "Siauliai", "Panevezys", "Klaipeda", "New York", "Los Angeles", "Chicago", "Houston", "Phoenix", "Philadelphia", "San Antonio", "San Diego", "Dallas", "Austin", "San Francisco", "Columbus", "Indianapolis", "Denver", "Washington", "Boston", "Detroit", "Nashville", "Oklahoma City", "Las Vegas", "Milwaukee", "Sacramento", "Atlanta", "Raleigh", "Saint Paul", "Nashik", "Faridabad", "Meerut", "Rajkot", "Kalyan-Dombivali", "Vasai-Virar", "Varanasi", "Srinagar", "Aurangabad", "Dhanbad", "Amritsar", "Navi Mumbai", "Allahabad", "Ranchi"}));
+		comboBox_3.setBounds(485, 257, 187, 20);
+		contentPane.add(comboBox_3);
+		
 		String[] c= new String[]{"Lithuania", "U.S", "India", "U.K", "Japan", "China"};
 		JComboBox comboBox = new JComboBox(c);
-		comboBox.setBounds(140, 515, 187, 20);
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"", "Lithuania", "U.S", "India", "U.K", "Japan", "China"}));
+		comboBox.setBounds(139, 420, 187, 20);
 		contentPane.add(comboBox);
 		
 		JLabel lblCountry = new JLabel("Country");
-		lblCountry.setBounds(38, 518, 67, 14);
+		lblCountry.setBounds(37, 423, 67, 14);
 		contentPane.add(lblCountry);
 		
 		JLabel lblState = new JLabel("State");
 		lblState.setBounds(402, 206, 36, 22);
 		contentPane.add(lblState);
 		
-		textField_6 = new JTextField();
-		textField_6.setBounds(485, 206, 187, 20);
-		contentPane.add(textField_6);
-		textField_6.setColumns(10);
-		
 		JLabel lblCity = new JLabel("City");
 		lblCity.setBounds(402, 260, 24, 14);
 		contentPane.add(lblCity);
-		
-		textField_7 = new JTextField();
-		textField_7.setBounds(485, 257, 187, 20);
-		contentPane.add(textField_7);
-		textField_7.setColumns(10);
 		
 		
 		
@@ -236,6 +211,7 @@ public class DeleteRecord extends JFrame {
 		contentPane.add(lblAddress);
 		
 		JTextArea textArea = new JTextArea();
+		textArea.setBackground(Color.LIGHT_GRAY);
 		textArea.setBounds(485, 288, 187, 88);
 		contentPane.add(textArea);
 		
@@ -270,7 +246,6 @@ public class DeleteRecord extends JFrame {
 			try {
 				stmt = conn.createStatement();
 			} catch (SQLException e2) {
-				// TODO Auto-generated catch block
 				e2.printStackTrace();
 			}
 			
@@ -299,16 +274,14 @@ public class DeleteRecord extends JFrame {
 							    java.util.Date d = new java.util.Date();
 							    d.toString();
 							    textField.setText("");
-								textField_1.setText("");
-								textField_2.setText("");
-								textField_3.setText("");
+							    comboBox_1.setSelectedItem("");
 								dateChooser.setDate(d);
-								comboBox.setSelectedItem("Select Country");
+								comboBox.setSelectedItem("");
 								textField_4.setText("");;
 								textField_5.setText("");;
-								textField_6.setText("");
+								comboBox_2.setSelectedItem("");
 								textField_8.setText("");
-								textField_7.setText("");
+								comboBox_3.setSelectedItem("");
 								formattedTextField_1.setText("");
 								formattedTextField_2.setText("");
 								textArea.setText("");
@@ -325,9 +298,7 @@ public class DeleteRecord extends JFrame {
 							while(rs.next()){
 								label.setText("");
 							textField.setText(rs.getString("emp_id"));
-							textField_1.setText(rs.getString("dept_id_emp"));
-							textField_2.setText(rs.getString("job_id_emp"));
-							textField_3.setText(rs.getString("type_id_emp"));
+							comboBox_1.setSelectedItem(rs.getString("dept_id_emp"));
 							textField_4.setText(rs.getString("first_name"));
 							textField_5.setText(rs.getString("last_name"));
 							dateChooser.setDate(rs.getDate("dob"));
@@ -342,8 +313,8 @@ public class DeleteRecord extends JFrame {
 								rdbtnMale.setSelected(false);
 							}
 							comboBox.setSelectedItem(rs.getString("country"));
-							textField_6.setText(rs.getString("state"));
-							textField_7.setText(rs.getString("city"));
+							comboBox_2.setSelectedItem(rs.getString("state"));
+							comboBox_3.setSelectedItem(rs.getString("city"));
 							textArea.setText(rs.getString("address"));
 							formattedTextField_1.setText(rs.getString("pincode"));
 							textField_8.setText(rs.getString("email"));
@@ -356,7 +327,6 @@ public class DeleteRecord extends JFrame {
 							
 							
 						} catch (SQLException e1) {
-							// TODO Auto-generated catch block
 							e1.printStackTrace();
 						} 
 				}
@@ -373,7 +343,6 @@ public class DeleteRecord extends JFrame {
 				
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					// TODO Auto-generated method stub
 					
 				
 					
@@ -386,9 +355,7 @@ public class DeleteRecord extends JFrame {
 								
 							while(rs.next()){
 							textField.setText(rs.getString("emp_id"));
-							textField_1.setText(rs.getString("dept_id_emp"));
-							textField_2.setText(rs.getString("job_id_emp"));
-							textField_3.setText(rs.getString("type_id_emp"));
+							comboBox_1.setSelectedItem(rs.getString("dept_id_emp"));
 							textField_4.setText(rs.getString("first_name"));
 							textField_5.setText(rs.getString("last_name"));
 							dateChooser.setDate(rs.getDate("dob"));
@@ -403,8 +370,8 @@ public class DeleteRecord extends JFrame {
 								rdbtnMale.setSelected(false);
 							}
 							comboBox.setSelectedItem(rs.getString("country"));
-							textField_6.setText(rs.getString("state"));
-							textField_7.setText(rs.getString("city"));
+							comboBox_2.setSelectedItem(rs.getString("state"));
+							comboBox_3.setSelectedItem(rs.getString("city"));
 							textArea.setText(rs.getString("address"));
 							formattedTextField_1.setText(rs.getString("pincode"));
 							textField_8.setText(rs.getString("email"));
@@ -417,7 +384,6 @@ public class DeleteRecord extends JFrame {
 							
 							
 						} catch (SQLException e1) {
-							// TODO Auto-generated catch block
 							e1.printStackTrace();
 						} 
 					
@@ -441,7 +407,6 @@ public class DeleteRecord extends JFrame {
 						label_1.setText("Record Deleted Successfully");
 					
 					} catch (SQLException e1) {
-						// TODO Auto-generated catch block
 						e1.printStackTrace();
 						JOptionPane.showMessageDialog(null, e1);
 						
@@ -459,18 +424,6 @@ public class DeleteRecord extends JFrame {
 			});
 			btnCancel.setBounds(402, 573, 136, 34);
 			contentPane.add(btnCancel);
-			
-			JLabel lblNewLabel = new JLabel("");
-			lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-			lblNewLabel.setVerticalAlignment(SwingConstants.TOP);
-			lblNewLabel.setIcon(new ImageIcon("D:\\Projects\\Universitetas\\Bakalaurinis\\Darbo uzmokescio skaiciavimo sistema\\src\\aboutus\\r.jpg"));
-			lblNewLabel.setBounds(0, 0, 789, 712);
-			contentPane.add(lblNewLabel);
-			
-			
-		
-			
-			
 		}
 	}
 

@@ -1,22 +1,28 @@
 package main;
-import java.awt.BorderLayout;
-import java.awt.Component;
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
-import java.awt.Frame;
-import java.awt.Window;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JComponent;
-import javax.swing.JMenuBar;
 import javax.swing.JMenu;
+import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JSeparator;
-import javax.swing.JButton;
 
+import aboutus.About;
+import employee.DeleteRecord;
+import employee.UpdateEmpDetail;
+import employee.UpdateJobDetails;
+import employee.UpdateWorkDetails;
+import leave.LeaveEntry;
+import leave.LeaveReport;
+import leave.LeaveSetting;
+import leave.LeaveStatus;
 import payroll.BasicSalary;
 import payroll.Bonus;
 import payroll.Deduction;
@@ -25,43 +31,9 @@ import reports.AllEmployee;
 import reports.DeductionReport;
 import reports.IncentivesReport;
 import reports.PaySlip;
-import employee.Add_Record;
-import employee.Bonus_Details;
-import employee.DeleteRecord;
-import employee.Job_Details;
-import employee.Salary_Detail;
-import employee.UpdateEmpDetail;
-import employee.UpdateJobDetails;
-import employee.UpdateWorkDetails;
-import employee.Work_Details;
-
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.text.ParseException;
-import java.awt.SystemColor;
-
-import leave.LeaveEntry;
-import leave.LeaveReport;
-import leave.LeaveSetting;
-import leave.LeaveStatus;
-
-import javax.swing.JLabel;
-import javax.swing.ImageIcon;
-
-import java.awt.Color;
-
-import javax.swing.SwingConstants;
-import javax.swing.JProgressBar;
-
-import aboutus.About;
 
 
 public class Home extends JFrame {
-
-	private JPanel contentPane;
 
 	/**
 	 * Launch the application.
@@ -106,192 +78,22 @@ public class Home extends JFrame {
 	 * Create the frame.
 	 */
 	public Home() {
+		getContentPane().setBackground(Color.WHITE);
 		
-		setBounds(0, 0, 252, 52);
+		setBounds(0, 0, 741, 529);
 		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
 		JMenu mnEmployee = new JMenu("Employee");
 		menuBar.add(mnEmployee);
-		mnEmployee.setFont(new Font("Roboto", Font.PLAIN, 12));
-		
-
-		
-		JMenu mnAdd = new JMenu("Add");
-		mnEmployee.add(mnAdd);
+		mnEmployee.setFont(new Font("Rfdfffdoboto", Font.PLAIN, 12));
 		
 		JMenuItem menuItem = new JMenuItem("Employee Basic Details");
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Add_Record ar;
-				try {
-					ar = new Add_Record();
-					ar.setVisible(true);
-					ar.setTitle("Employee Basic Details");
-					ar.setResizable(false);
-					ar.setLocationRelativeTo(null);
-					  WindowAdapter exitListener = new WindowAdapter() {
-
-				            @Override
-				            public void windowClosing(WindowEvent e) {
-				                int confirm = JOptionPane.showOptionDialog(ar,
-				                        "Are you sure you want to close this window?",
-				                        "Exit Confirmation", JOptionPane.YES_NO_CANCEL_OPTION,
-				                        JOptionPane.QUESTION_MESSAGE, null, null, null);
-				                if(confirm == JOptionPane.YES_OPTION){
-				                   ar.setDefaultCloseOperation(DISPOSE_ON_CLOSE);//yes
-
-				                } else if (confirm == JOptionPane.CANCEL_OPTION) {
-				                    ar.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);//cancel
-				                } else {
-				                    ar.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);//no
-				                }
-				            }
-				        };
-				     ar.addWindowListener(exitListener);
-					
-				} catch (ParseException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-			
 			}
 		});
-		mnAdd.add(menuItem);
-		
-		JMenuItem mntmSalaryDetail = new JMenuItem("Salary Details");
-		mntmSalaryDetail.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				Salary_Detail s;
-				s = new Salary_Detail();
-				s.setVisible(true);
-				s.setTitle("Salary Details");
-				
-				s.setResizable(false);
-				s.setLocationRelativeTo(null);
-				  WindowAdapter exitListener = new WindowAdapter() {
-
-			            @Override
-			            public void windowClosing(WindowEvent e) {
-			                int confirm = JOptionPane.showOptionDialog(s,
-			                        "Are you sure you want to close this window?",
-			                        "Exit Confirmation", JOptionPane.YES_NO_CANCEL_OPTION,
-			                        JOptionPane.QUESTION_MESSAGE, null, null, null);
-			                if(confirm == JOptionPane.YES_OPTION){
-			                   s.setDefaultCloseOperation(DISPOSE_ON_CLOSE);//yes
-
-			                } else if (confirm == JOptionPane.CANCEL_OPTION) {
-			                    s.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);//cancel
-			                } else {
-			                    s.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);//no
-			                }
-			            }
-			        };
-			     s. addWindowListener(exitListener);
-				
-			}
-		});
-		mnAdd.add(mntmSalaryDetail);
-		
-		JMenuItem mntmJobTitle = new JMenuItem("Job Details");
-		mntmJobTitle.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Job_Details j = new Job_Details();
-				j.setVisible(true);
-				j.setResizable(false);
-				j.setLocationRelativeTo(null);
-				j.setTitle("Job Details");
-				  WindowAdapter exitListener = new WindowAdapter() {
-
-			            @Override
-			            public void windowClosing(WindowEvent e) {
-			                int confirm = JOptionPane.showOptionDialog(j,
-			                        "Are you sure you want to close this window?",
-			                        "Exit Confirmation", JOptionPane.YES_NO_CANCEL_OPTION,
-			                        JOptionPane.QUESTION_MESSAGE, null, null, null);
-			                if(confirm == JOptionPane.YES_OPTION){
-			                   j.setDefaultCloseOperation(DISPOSE_ON_CLOSE);//yes
-
-			                } else if (confirm == JOptionPane.CANCEL_OPTION) {
-			                    j.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);//cancel
-			                } else {
-			                    j.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);//no
-			                }
-			            }
-			        };
-			     j. addWindowListener(exitListener);
-			
-			}
-		});
-		mnAdd.add(mntmJobTitle);
-		
-		JMenuItem mntmWorkDetails = new JMenuItem("Work Details");
-		mntmWorkDetails.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				Work_Details w = new Work_Details();
-				w.setVisible(true);
-				w.setResizable(false);
-				w.setLocationRelativeTo(null);
-				w.setTitle("Work Details");
-				  WindowAdapter exitListener = new WindowAdapter() {
-
-			            @Override
-			            public void windowClosing(WindowEvent e) {
-			                int confirm = JOptionPane.showOptionDialog(w,
-			                        "Are you sure you want to close this window?",
-			                        "Exit Confirmation", JOptionPane.YES_NO_CANCEL_OPTION,
-			                        JOptionPane.QUESTION_MESSAGE, null, null, null);
-			                if(confirm == JOptionPane.YES_OPTION){
-			                   w.setDefaultCloseOperation(DISPOSE_ON_CLOSE);//yes
-
-			                } else if (confirm == JOptionPane.CANCEL_OPTION) {
-			                    w.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);//cancel
-			                } else {
-			                    w.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);//no
-			                }
-			            }
-			        };
-			     w. addWindowListener(exitListener);
-				
-			}
-		});
-		mnAdd.add(mntmWorkDetails);
-		
-		JMenuItem mntmBonus_1 = new JMenuItem("Bonus");
-		mntmBonus_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				Bonus_Details b =new Bonus_Details();
-				b.setVisible(true);
-				
-				b.setTitle("Bonus Details");
-				b.setResizable(false);
-				b.setLocationRelativeTo(null);
-				  WindowAdapter exitListener = new WindowAdapter() {
-
-			            @Override
-			            public void windowClosing(WindowEvent e) {
-			                int confirm = JOptionPane.showOptionDialog(b,
-			                        "Are you sure you want to close this window?",
-			                        "Exit Confirmation", JOptionPane.YES_NO_CANCEL_OPTION,
-			                        JOptionPane.QUESTION_MESSAGE, null, null, null);
-			                if(confirm == JOptionPane.YES_OPTION){
-			                   b.setDefaultCloseOperation(DISPOSE_ON_CLOSE);//yes
-
-			                } else if (confirm == JOptionPane.CANCEL_OPTION) {
-			                    b.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);//cancel
-			                } else {
-			                    b.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);//no
-			                }
-			            }
-			        };
-			     b. addWindowListener(exitListener);
-			}
-		});
-		mnAdd.add(mntmBonus_1);
 		
 		JMenu mnUpdate = new JMenu("Update");
 		mnEmployee.add(mnUpdate);
@@ -394,9 +196,6 @@ public class Home extends JFrame {
 		});
 		mnUpdate.add(mntmWorkDetails_1);
 		
-		JMenuItem mntmSearch = new JMenuItem("Search");
-		mnEmployee.add(mntmSearch);
-		
 		JMenuItem mntmDelete = new JMenuItem("Delete");
 		mntmDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -481,7 +280,6 @@ public class Home extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
 				Incentives b =new Incentives();
 				b.setVisible(true);
 				b.setTitle("Incentives Details");
@@ -517,7 +315,6 @@ public class Home extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
 				Bonus b = new Bonus();
 				b.setVisible(true);
 				b.setResizable(false);
@@ -552,7 +349,6 @@ public class Home extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
 				Deduction d = new Deduction();
 				d.setVisible(true);
 				d.setResizable(false);
@@ -888,18 +684,5 @@ public class Home extends JFrame {
 			}
 		});
 		mnHelp.add(mntmAboutUs);
-		
-		contentPane = new JPanel();
-		contentPane.setBackground(SystemColor.activeCaption);
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
-		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setVerticalAlignment(SwingConstants.TOP);
-		lblNewLabel.setIcon(new ImageIcon("D:\\Projects\\Universitetas\\Bakalaurinis\\Darbo uzmokescio skaiciavimo sistema\\src\\aboutus\\r.jpg"));
-		lblNewLabel.setBounds(-25, -25, 680, 481);
-		contentPane.add(lblNewLabel);
 	}
 }

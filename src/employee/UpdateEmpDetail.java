@@ -38,6 +38,7 @@ import org.jdesktop.xswingx.PromptSupport.FocusBehavior;
 import com.toedter.calendar.JDateChooser;
 import javax.swing.ImageIcon;
 import org.jdesktop.swingx.JXSearchField.SearchMode;
+import javax.swing.DefaultComboBoxModel;
 
 
 public class UpdateEmpDetail extends JFrame {
@@ -46,13 +47,8 @@ public class UpdateEmpDetail extends JFrame {
 	
 	
 	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
 	private JTextField textField_4;
 	private JTextField textField_5;
-	private JTextField textField_6;
-	private JTextField textField_7;
 	
 	Connection conn;
     Statement stmt;
@@ -87,8 +83,7 @@ public class UpdateEmpDetail extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 720, 609);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(153, 204, 153));
-		//contentPane.setBackground(SystemColor.activeCaption);
+		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
@@ -96,6 +91,7 @@ public class UpdateEmpDetail extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel label = new JLabel("");
+		label.setBackground(Color.LIGHT_GRAY);
 		label.setFont(new Font("Tahoma", Font.BOLD, 11));
 		label.setBounds(262, 101, 162, 20);
 		contentPane.add(label);
@@ -117,20 +113,12 @@ public class UpdateEmpDetail extends JFrame {
 		lblDepartmentId.setBounds(31, 173, 100, 14);
 		contentPane.add(lblDepartmentId);
 		
-		JLabel lblJobId = new JLabel("Job ID");
-		lblJobId.setBounds(31, 212, 73, 14);
-		contentPane.add(lblJobId);
-		
-		JLabel lblEmployeeTypeId = new JLabel("Employee Type ID");
-		lblEmployeeTypeId.setBounds(31, 256, 125, 20);
-		contentPane.add(lblEmployeeTypeId);
-		
 		JLabel lblFirstName = new JLabel("First Name");
-		lblFirstName.setBounds(31, 296, 67, 14);
+		lblFirstName.setBounds(31, 201, 67, 14);
 		contentPane.add(lblFirstName);
 		
 		JLabel lblLastName = new JLabel("Last Name");
-		lblLastName.setBounds(31, 335, 73, 14);
+		lblLastName.setBounds(31, 240, 73, 14);
 		contentPane.add(lblLastName);
 		
 		textField = new JTextField();
@@ -141,44 +129,29 @@ public class UpdateEmpDetail extends JFrame {
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(133, 170, 187, 20);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
-		
-		textField_2 = new JTextField();
-		textField_2.setBounds(133, 209, 187, 20);
-		contentPane.add(textField_2);
-		textField_2.setColumns(10);
-		
-		textField_3 = new JTextField();
-		textField_3.setBounds(133, 253, 187, 20);
-		contentPane.add(textField_3);
-		textField_3.setColumns(10);
-		
 		textField_4 = new JTextField();
-		textField_4.setBounds(133, 293, 187, 20);
+		textField_4.setBounds(133, 198, 187, 20);
 		contentPane.add(textField_4);
 		textField_4.setColumns(10);
 		
 		textField_5 = new JTextField();
-		textField_5.setBounds(133, 332, 187, 20);
+		textField_5.setBounds(133, 237, 187, 20);
 		contentPane.add(textField_5);
 		textField_5.setColumns(10);
 		
 		JLabel lblDob = new JLabel("DOB");
-		lblDob.setBounds(31, 380, 73, 14);
+		lblDob.setBounds(31, 285, 73, 14);
 		contentPane.add(lblDob);
 		
 		JLabel lblGender = new JLabel("Gender");
-		lblGender.setBounds(31, 414, 67, 14);
+		lblGender.setBounds(31, 319, 67, 14);
 		contentPane.add(lblGender);
 		
 		JRadioButton rdbtnMale = new JRadioButton("Male");
 		rdbtnMale.setActionCommand("Male");
 		JRadioButton rdbtnFemale = new JRadioButton("Female");
 		rdbtnFemale.setActionCommand("Female");
-		rdbtnMale.setBounds(133, 410, 80, 23);
+		rdbtnMale.setBounds(133, 315, 80, 23);
 		ButtonGroup bG = new ButtonGroup();
 	     bG.add(rdbtnMale);
 	     bG.add(rdbtnFemale);
@@ -186,48 +159,53 @@ public class UpdateEmpDetail extends JFrame {
 	    
 		
 		
-		rdbtnFemale.setBounds(226, 410, 94, 23);
+		rdbtnFemale.setBounds(226, 315, 94, 23);
 		contentPane.add(rdbtnMale);
 		contentPane.add(rdbtnFemale);
 		
 		
 		JDateChooser dateChooser = new JDateChooser();
-		dateChooser.setBounds(132, 374, 188, 20);
+		dateChooser.setBounds(132, 279, 188, 20);
 		dateChooser.setDateFormatString("yyyy-MM-dd");
 		
 		Date dateFromDateChooser = (Date) dateChooser.getDate();
 		contentPane.add(dateChooser);
 		
-
+		String[] d= new String[]{"", "34KC", "30KA", "25KE", "28KU", "35KT"};
+		JComboBox comboBox_1 = new JComboBox();
+		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"", "34KC", "30KA", "25KE", "28KU", "35KT"}));
+		comboBox_1.setBounds(133, 170, 187, 20);
+		contentPane.add(comboBox_1);
 		
-		String[] c= new String[]{"Lithuania", "U.S", "India", "U.K", "Japan", "China"};
+		String[] c= new String[]{"", "Lithuania", "U.S", "India", "U.K", "Japan", "China"};
 		JComboBox comboBox = new JComboBox(c);
-		comboBox.setBounds(133, 450, 187, 20);
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"", "Lithuania", "U.S", "India"}));
+		comboBox.setBounds(133, 355, 187, 20);
 		contentPane.add(comboBox);
 		
+		String[] s= new String[]{"", "Vilnius City Municipality", "Kaunas City Municipality", "Klaipeda City Municipality", "Panevezys City Municipality", "Siauliai City Municipality", "Alytus City Municipality", "Birstonas Municipality", "Palanga City Municipality", "Visaginas Municipality", "Neringa Municipality", "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"};
+		JComboBox comboBox_2 = new JComboBox();
+		comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"", "Vilnius City Municipality", "Kaunas City Municipality", "Klaipeda City Municipality", "Panevezys City Municipality", "\u0160iauliai City Municipality", "Alytus City Municipality", "Birstonas Municipality", "Palanga City Municipality", "Visaginas Municipality", "Neringa Municipality", "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jammu and Kashmir", "Jharkhand", "Karnataka", "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu", "Telangana", "Tripura", "Uttar Pradesh", "Uttarakhand", "West Bengal", "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"}));
+		comboBox_2.setBounds(507, 145, 187, 20);
+		contentPane.add(comboBox_2);
+		
+		String[] m= new String[] {"", "Vilnius", "Kaunas", "Siauliai", "Panevezys", "Klaipeda", "New York", "Los Angeles", "Chicago", "Houston", "Phoenix", "Philadelphia", "San Antonio", "San Diego", "Dallas", "Austin", "San Francisco", "Columbus", "Indianapolis", "Denver", "Washington", "Boston", "Detroit", "Nashville", "Oklahoma City", "Las Vegas", "Milwaukee", "Sacramento", "Atlanta", "Raleigh", "Saint Paul", "Nashik", "Faridabad", "Meerut", "Rajkot", "Kalyan-Dombivali", "Vasai-Virar", "Varanasi", "Srinagar", "Aurangabad", "Dhanbad", "Amritsar", "Navi Mumbai", "Allahabad", "Ranchi"};
+		JComboBox comboBox_3 = new JComboBox();
+		comboBox_3.setModel(new DefaultComboBoxModel(new String[] {"", "Vilnius", "Kaunas", "Siauliai", "Panevezys", "Klaipeda", "New York", "Los Angeles", "Chicago", "Houston", "Phoenix", "Philadelphia", "San Antonio", "San Diego", "Dallas", "Austin", "San Francisco", "Columbus", "Indianapolis", "Denver", "Washington", "Boston", "Detroit", "Nashville", "Oklahoma City", "Las Vegas", "Milwaukee", "Sacramento", "Atlanta", "Raleigh", "Saint Paul", "Nashik", "Faridabad", "Meerut", "Rajkot", "Kalyan-Dombivali", "Vasai-Virar", "Varanasi", "Srinagar", "Aurangabad", "Dhanbad", "Amritsar", "Navi Mumbai", "Allahabad", "Ranchi"}));
+		comboBox_3.setBounds(507, 198, 187, 20);
+		contentPane.add(comboBox_3);
+		
 		JLabel lblCountry = new JLabel("Country");
-		lblCountry.setBounds(31, 453, 67, 14);
+		lblCountry.setBounds(31, 358, 67, 14);
 		contentPane.add(lblCountry);
 		
 		JLabel lblState = new JLabel("State");
 		lblState.setBounds(388, 147, 36, 18);
 		contentPane.add(lblState);
 		
-		textField_6 = new JTextField();
-		textField_6.setBounds(507, 145, 187, 20);
-		contentPane.add(textField_6);
-		textField_6.setColumns(10);
-		
 		JLabel lblCity = new JLabel("City");
 		lblCity.setBounds(388, 201, 26, 14);
 		contentPane.add(lblCity);
-		
-		textField_7 = new JTextField();
-		textField_7.setBounds(507, 196, 187, 20);
-		contentPane.add(textField_7);
-		textField_7.setColumns(10);
-		
-		
 		
 		JSeparator separator_1 = new JSeparator(SwingConstants.VERTICAL);
 		separator_1.setBounds(356, 145, 2, 328);
@@ -238,6 +216,7 @@ public class UpdateEmpDetail extends JFrame {
 		contentPane.add(lblAddress);
 		
 		JTextArea textArea = new JTextArea();
+		textArea.setBackground(Color.LIGHT_GRAY);
 		textArea.setBounds(507, 227, 187, 88);
 		contentPane.add(textArea);
 		
@@ -274,7 +253,6 @@ public class UpdateEmpDetail extends JFrame {
 			try {
 				stmt = conn.createStatement();
 			} catch (SQLException e2) {
-				// TODO Auto-generated catch block
 				e2.printStackTrace();
 			}
 			
@@ -297,16 +275,14 @@ public class UpdateEmpDetail extends JFrame {
 							    java.util.Date d = new java.util.Date();
 							    d.toString();
 							    textField.setText("");
-								textField_1.setText("");
-								textField_2.setText("");
-								textField_3.setText("");
 								dateChooser.setDate(d);
-								comboBox.setSelectedItem("Select Country");
+								comboBox_1.setSelectedItem("");
+								comboBox.setSelectedItem("");
 								textField_4.setText("");;
 								textField_5.setText("");;
-								textField_6.setText("");
+								comboBox_2.setSelectedItem("");
 								textField_8.setText("");
-								textField_7.setText("");
+								comboBox_3.setSelectedItem("");
 								formattedTextField_1.setText("");
 								formattedTextField_2.setText("");
 								textArea.setText("");
@@ -322,9 +298,7 @@ public class UpdateEmpDetail extends JFrame {
 							while(rs.next()){
 								label.setText("");
 							textField.setText(rs.getString("emp_id"));
-							textField_1.setText(rs.getString("dept_id_emp"));
-							textField_2.setText(rs.getString("job_id_emp"));
-							textField_3.setText(rs.getString("type_id_emp"));
+							comboBox_1.setSelectedItem(rs.getString("dept_id_emp"));
 							textField_4.setText(rs.getString("first_name"));
 							textField_5.setText(rs.getString("last_name"));
 							dateChooser.setDate(rs.getDate("dob"));
@@ -339,8 +313,8 @@ public class UpdateEmpDetail extends JFrame {
 								rdbtnMale.setSelected(false);
 							}
 							comboBox.setSelectedItem(rs.getString("country"));
-							textField_6.setText(rs.getString("state"));
-							textField_7.setText(rs.getString("city"));
+							comboBox_2.setSelectedItem(rs.getString("state"));
+							comboBox_3.setSelectedItem(rs.getString("city"));
 							textArea.setText(rs.getString("address"));
 							formattedTextField_1.setText(rs.getString("pincode"));
 							textField_8.setText(rs.getString("email"));
@@ -353,7 +327,6 @@ public class UpdateEmpDetail extends JFrame {
 							
 							
 						} catch (SQLException e1) {
-							// TODO Auto-generated catch block
 							e1.printStackTrace();
 						} 
 					
@@ -373,24 +346,21 @@ public class UpdateEmpDetail extends JFrame {
 				public void actionPerformed(ActionEvent e) {
 					
 					String eid = textField.getText().toString();
-					String dept_id= textField_1.getText().toString();
-					String job_id = textField_2.getText().toString();
-					String type_id = textField_3.getText().toString();
+					String dept_id= comboBox_1.getSelectedItem().toString();
 					String lname = textField_5.getText();
 					String fname = textField_4.getText();
 					java.sql.Date dat = new java.sql.Date(dateChooser.getDate().getTime());
 					String gen  =bG.getSelection().getActionCommand();
 					String country = comboBox.getSelectedItem().toString();
-					String state = textField_6.getText();
-					String city = textField_7.getText();
+					String state = comboBox_2.getSelectedItem().toString();
+					String city = comboBox_3.getSelectedItem().toString();
 					String add = textArea.getText();
 					String pincode = formattedTextField_1.getText().toString();
 					String email = textField_8.getText().toString();
 					String mob = formattedTextField_2.getText().toString();
 
 					try {
-					String sql = "update employee set emp_id ='"+eid+"',dept_id_emp = '"+dept_id+"' ,job_id_emp='"+job_id+"' , type_id_emp = '"
-							+ type_id+"',last_name = '"+lname+"',first_name ='"+fname+"',dob = '"+dat+"',gender = '"+gen+"',country ='"
+					String sql = "update employee set emp_id ='"+eid+"',dept_id_emp = '"+dept_id+"',last_name = '"+lname+"',first_name ='"+fname+"',dob = '"+dat+"',gender = '"+gen+"',country ='"
 									+country+ "', state = '"+state+"', city = '"+city+"', address ='"+add+"', pincode ='"+pincode+"',email='"
 											+ email+"', mobile_no = '"+mob+"' where emp_id = '"+srchfldEnterempId.getText().toString()+"' ";
 					System.out.println(sql);
@@ -400,9 +370,7 @@ public class UpdateEmpDetail extends JFrame {
 								
 					
 					} catch (SQLException e1) {
-						// TODO Auto-generated catch block
 						e1.printStackTrace();
-						//JOptionPane.showMessageDialog(null, e1);
 						
 					}
 				}
@@ -423,21 +391,6 @@ public class UpdateEmpDetail extends JFrame {
 			PromptSupport.setFontStyle(Font.ITALIC, textField);
 			PromptSupport.setForeground(Color.darkGray, textField);
 			
-			PromptSupport.setPrompt("Enter Job ID", textField_1);
-			PromptSupport.setFocusBehavior(FocusBehavior.SHOW_PROMPT, textField_1);
-			PromptSupport.setFontStyle(Font.ITALIC, textField_1);
-			PromptSupport.setForeground(Color.darkGray, textField_1);
-			
-			PromptSupport.setPrompt("Enter Department ID", textField_2);
-			PromptSupport.setFocusBehavior(FocusBehavior.SHOW_PROMPT, textField_2);
-			PromptSupport.setFontStyle(Font.ITALIC, textField_2); 
-			PromptSupport.setForeground(Color.darkGray, textField_2);
-			
-			PromptSupport.setPrompt("Enter Employee Type ID", textField_3);
-			PromptSupport.setFocusBehavior(FocusBehavior.SHOW_PROMPT, textField_3);
-			PromptSupport.setFontStyle(Font.ITALIC, textField_3); 
-			PromptSupport.setForeground(Color.darkGray, textField_3);
-			
 			PromptSupport.setPrompt("Enter First Name", textField_4);
 			PromptSupport.setFocusBehavior(FocusBehavior.SHOW_PROMPT, textField_4);
 			PromptSupport.setFontStyle(Font.ITALIC, textField_4); 
@@ -447,16 +400,6 @@ public class UpdateEmpDetail extends JFrame {
 			PromptSupport.setFocusBehavior(FocusBehavior.SHOW_PROMPT, textField_5);
 			PromptSupport.setFontStyle(Font.ITALIC, textField_5); 
 			PromptSupport.setForeground(Color.darkGray, textField_5);
-	
-			PromptSupport.setPrompt("Enter State", textField_6);
-			PromptSupport.setFocusBehavior(FocusBehavior.SHOW_PROMPT, textField_6);
-			PromptSupport.setFontStyle(Font.ITALIC, textField_6);
-			PromptSupport.setForeground(Color.darkGray, textField_6);
-			
-			PromptSupport.setPrompt("Enter City", textField_7);
-			PromptSupport.setFocusBehavior(org.jdesktop.xswingx.PromptSupport.FocusBehavior.SHOW_PROMPT, textField_7);
-			PromptSupport.setFontStyle(Font.ITALIC, textField_7);
-			PromptSupport.setForeground(Color.darkGray, textField_7);
 			
 			PromptSupport.setPrompt("Enter Employee Address", textArea);
 			PromptSupport.setFocusBehavior(FocusBehavior.SHOW_PROMPT, textArea);
@@ -495,21 +438,6 @@ public class UpdateEmpDetail extends JFrame {
 			PromptSupport.setFontStyle(Font.ITALIC, textField);
 			PromptSupport.setForeground(Color.darkGray, textField);
 			
-			PromptSupport.setPrompt("Enter Job ID", textField_1);
-			PromptSupport.setFocusBehavior(FocusBehavior.SHOW_PROMPT, textField_1);
-			PromptSupport.setFontStyle(Font.ITALIC, textField_1);
-			PromptSupport.setForeground(Color.darkGray, textField_1);
-			
-			PromptSupport.setPrompt("Enter Department ID", textField_2);
-			PromptSupport.setFocusBehavior(FocusBehavior.SHOW_PROMPT, textField_2);
-			PromptSupport.setFontStyle(Font.ITALIC, textField_2); 
-			PromptSupport.setForeground(Color.darkGray, textField_2);
-			
-			PromptSupport.setPrompt("Enter Employee Type ID", textField_3);
-			PromptSupport.setFocusBehavior(FocusBehavior.SHOW_PROMPT, textField_3);
-			PromptSupport.setFontStyle(Font.ITALIC, textField_3); 
-			PromptSupport.setForeground(Color.darkGray, textField_3);
-			
 			PromptSupport.setPrompt("Enter First Name", textField_4);
 			PromptSupport.setFocusBehavior(FocusBehavior.SHOW_PROMPT, textField_4);
 			PromptSupport.setFontStyle(Font.ITALIC, textField_4); 
@@ -519,16 +447,6 @@ public class UpdateEmpDetail extends JFrame {
 			PromptSupport.setFocusBehavior(FocusBehavior.SHOW_PROMPT, textField_5);
 			PromptSupport.setFontStyle(Font.ITALIC, textField_5); 
 			PromptSupport.setForeground(Color.darkGray, textField_5);
-	
-			PromptSupport.setPrompt("Enter State", textField_6);
-			PromptSupport.setFocusBehavior(FocusBehavior.SHOW_PROMPT, textField_6);
-			PromptSupport.setFontStyle(Font.ITALIC, textField_6);
-			PromptSupport.setForeground(Color.darkGray, textField_6);
-			
-			PromptSupport.setPrompt("Enter City", textField_7);
-			PromptSupport.setFocusBehavior(FocusBehavior.SHOW_PROMPT, textField_7);
-			PromptSupport.setFontStyle(Font.ITALIC, textField_7);
-			PromptSupport.setForeground(Color.darkGray, textField_7);
 			
 			PromptSupport.setPrompt("Enter Employee Address", textArea);
 			PromptSupport.setFocusBehavior(FocusBehavior.SHOW_PROMPT, textArea);
@@ -550,16 +468,6 @@ public class UpdateEmpDetail extends JFrame {
 			PromptSupport.setFocusBehavior(FocusBehavior.SHOW_PROMPT, formattedTextField_2);
 			PromptSupport.setFontStyle(Font.ITALIC, formattedTextField_2);
 			PromptSupport.setForeground(Color.darkGray, formattedTextField_2);
-			
-			JLabel label_2 = new JLabel("");
-			label_2.setHorizontalAlignment(SwingConstants.CENTER);
-			label_2.setVerticalAlignment(SwingConstants.TOP);
-			label_2.setIcon(new ImageIcon("D:\\Projects\\Universitetas\\Bakalaurinis\\Darbo uzmokescio skaiciavimo sistema\\src\\aboutus\\r.jpg"));
-			label_2.setBounds(0, -15, 760, 654);
-			contentPane.add(label_2);
-			
-			
-			
 		} 
 	}
 

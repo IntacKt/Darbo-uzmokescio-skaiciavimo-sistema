@@ -34,9 +34,6 @@ import javax.swing.SwingConstants;
 public class UpdateWorkDetails extends JFrame {
 
 	private JPanel contentPane;
-	
-	
-	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
@@ -70,10 +67,9 @@ public class UpdateWorkDetails extends JFrame {
 	public UpdateWorkDetails() {
 		setTitle("Updated Work Details");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(0, 0, 310, 420);
+		setBounds(0, 0, 310, 418);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(153, 204, 153));
-		//contentPane.setBackground(SystemColor.activeCaption);
+		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -90,73 +86,63 @@ public class UpdateWorkDetails extends JFrame {
 		separator.setBounds(10, 71, 266, 4);
 		contentPane.add(separator);
 		
-		JLabel lblSalaryId = new JLabel("Hour ID");
-		lblSalaryId.setBounds(10, 119, 47, 14);
-		contentPane.add(lblSalaryId);
-		
 		JLabel lblEmplyeeId = new JLabel("Employee ID");
-		lblEmplyeeId.setBounds(10, 161, 69, 14);
+		lblEmplyeeId.setBounds(12, 122, 69, 14);
 		contentPane.add(lblEmplyeeId);
 		
 		JLabel lblBaseYear = new JLabel("Hourly Rate");
-		lblBaseYear.setBounds(10, 200, 89, 14);
+		lblBaseYear.setBounds(12, 161, 89, 14);
 		contentPane.add(lblBaseYear);
 		
 		JLabel lblRemarks = new JLabel("Remarks");
-		lblRemarks.setBounds(10, 230, 79, 14);
+		lblRemarks.setBounds(12, 191, 79, 14);
 		contentPane.add(lblRemarks);
-		
-		textField = new JTextField();
-		textField.setBounds(87, 116, 187, 20);
-		//textField.setBounds(178, 103, 140, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
 		textField_1.setFont(new Font("Tahoma", Font.BOLD, 11));
 		textField_1.setForeground(Color.RED);
 		textField_1.setEditable(false);
 		textField_1.setColumns(10);
-		textField_1.setBounds(87, 158, 187, 20);
+		textField_1.setBounds(89, 119, 187, 20);
 		contentPane.add(textField_1);
 		
 		textField_2 = new JTextField();
 		textField_2.setColumns(10);
-		textField_2.setBounds(87, 197, 187, 20);
+		textField_2.setBounds(89, 158, 187, 20);
 		contentPane.add(textField_2);
 		
 		try {
 			stmt = conn.createStatement();
 		} catch (SQLException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		
 		
 		JTextArea textArea = new JTextArea();
-		textArea.setBounds(87, 230, 187, 77);
+		textArea.setBackground(Color.LIGHT_GRAY);
+		textArea.setBounds(89, 191, 187, 77);
 		contentPane.add(textArea);
 		
 		
 		JButton btnConfirmDetails = new JButton("Update Details");
-		btnConfirmDetails.setBounds(10, 318, 127, 31);
+		btnConfirmDetails.setBounds(12, 279, 127, 31);
 		
 		
 	
 		
 		JButton btnCancel = new JButton("Cancel");
-		btnCancel.setBounds(147, 318, 127, 31);
+		btnCancel.setBounds(149, 279, 127, 31);
 		contentPane.add(btnCancel);
 
 
 		JLabel label = new JLabel("");
 		label.setFont(new Font("Tahoma", Font.BOLD, 11));
-		label.setBounds(543, 148, 139, 14);
+		label.setBounds(74, 346, 139, 14);
 		contentPane.add(label);
 		
 		
 		JLabel label_1 = new JLabel("");
-		label_1.setBounds(40, 360, 218, 14);
+		label_1.setBounds(42, 321, 218, 14);
 		contentPane.add(label_1);
 		
 	
@@ -177,7 +163,6 @@ public class UpdateWorkDetails extends JFrame {
 						    label.setText("No Record Found");
 						    java.util.Date d = new java.util.Date();
 						    d.toString();
-						    textField.setText("");
 							textField_1.setText("");
 							textField_2.setText("");
 							textArea.setText("");
@@ -190,7 +175,6 @@ public class UpdateWorkDetails extends JFrame {
 						while(rs.next()){
 							label.setText("");
 							
-							textField.setText(rs.getString("hr_id"));
 							textField_1.setText(rs.getString("emp_id_hr"));
 							textField_2.setText(rs.getString("hr_rate"));
 							textArea.setText(rs.getString("note"));
@@ -201,7 +185,6 @@ public class UpdateWorkDetails extends JFrame {
 						}
 						
 					} catch (SQLException e1) {
-						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					} 
 				
@@ -223,7 +206,6 @@ public class UpdateWorkDetails extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
 				
 			
 				
@@ -236,7 +218,6 @@ public class UpdateWorkDetails extends JFrame {
 							
 						while(rs.next()){
 							
-							textField.setText(rs.getString("hr_id"));
 							textField_1.setText(rs.getString("emp_id_hr"));
 							textField_2.setText(rs.getString("hr_rate"));
 							textArea.setText(rs.getString("note"));
@@ -247,7 +228,6 @@ public class UpdateWorkDetails extends JFrame {
 						
 						
 					} catch (SQLException e1) {
-						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					} 
 				
@@ -259,7 +239,6 @@ btnConfirmDetails.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				String hrid = textField.getText().toString();
 				String e_id =textField_1.getText().toString();
 				String ht_rate = textField_2.getText().toString();
 				
@@ -270,7 +249,7 @@ btnConfirmDetails.addActionListener(new ActionListener() {
 				Double salary = hr_rate *8*30;
 				try {
 				
-					String sql ="update hourly set hr_id ='"+hrid+"', emp_id_hr = '"+e_id+"',hr_rate = '"+ht_rate+"', note = '"+nt+"' where emp_id_hr = '"+srchfldEnterempId.getText().toString()+"'";
+					String sql ="update hourly set emp_id_hr = '"+e_id+"',hr_rate = '"+ht_rate+"', note = '"+nt+"' where emp_id_hr = '"+srchfldEnterempId.getText().toString()+"'";
 				
 						stmt.executeUpdate(sql);
 						System.out.println(sql);
@@ -285,19 +264,11 @@ btnConfirmDetails.addActionListener(new ActionListener() {
 					
 					
 			}catch (SQLException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 			}
 		});
 		contentPane.add(btnConfirmDetails);
-		
-		JLabel label_2 = new JLabel("");
-		label_2.setHorizontalAlignment(SwingConstants.CENTER);
-		label_2.setVerticalAlignment(SwingConstants.TOP);
-		label_2.setIcon(new ImageIcon("D:\\Projects\\Universitetas\\Bakalaurinis\\Darbo uzmokescio skaiciavimo sistema\\src\\aboutus\\r.jpg"));
-		label_2.setBounds(0, 0, 362, 427);
-		contentPane.add(label_2);
 	
 		
 		btnCancel.addActionListener(new ActionListener() {
@@ -305,8 +276,6 @@ btnConfirmDetails.addActionListener(new ActionListener() {
 				dispose();
 			}
 		});
-		
-	
 	}
 
 }

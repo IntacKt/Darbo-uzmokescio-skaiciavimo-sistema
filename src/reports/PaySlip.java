@@ -433,7 +433,6 @@ public class PaySlip extends JFrame implements Printable {
 						}
 					  }
 					} catch (SQLException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 				double totalInc =  Double.parseDouble((textField_16.getText().toString()));
