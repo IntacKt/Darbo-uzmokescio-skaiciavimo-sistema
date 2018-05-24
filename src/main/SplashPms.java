@@ -7,7 +7,6 @@ import com.thehowtotutorial.splashscreen.JSplash;
 public class SplashPms {
 
 	public static void main(String[] args)  {
-		// TODO Auto-generated method stub
 
 		JSplash  splash  = new JSplash(SplashPms.class.getResource("pms.jpg"), true, true, false, "v 1.0",null,Color.RED,Color.BLACK);
 		
@@ -30,20 +29,10 @@ public class SplashPms {
 		
 		splash.splashOff();
 	}catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	//	new Home().setTitle("Home");
-	//	new Home().setVisible(true);
 		
 		Login l = new Login();
-		
-		
-	
-
-		
-		
-		
 	}
 
 }

@@ -132,11 +132,11 @@ public class Login {
 	
 		frame.getContentPane().setForeground(new Color(51, 0, 102));
 		frame.getContentPane().setFont(new Font("Roboto", Font.BOLD, 18));
-		frame.getContentPane().setBackground(new Color(102, 102, 153));
+		frame.getContentPane().setBackground(Color.WHITE);
 		frame.getContentPane().setLayout(null);
 		
 		JLabel lblSalaryCalculationSystem = new JLabel("Salary Calculation System");
-		lblSalaryCalculationSystem.setForeground(new Color(204, 255, 204));
+		lblSalaryCalculationSystem.setForeground(Color.BLACK);
 		lblSalaryCalculationSystem.setFont(new Font("Roboto", Font.PLAIN, 26));
 		lblSalaryCalculationSystem.setBounds(143, 32, 308, 57);
 		Font f = new Font("Roboto" ,Font.BOLD ,18);
@@ -145,13 +145,13 @@ public class Login {
 	
 		
 		JLabel lblUsername = new JLabel("Username");
-		lblUsername.setForeground(new Color(204, 255, 204));
+		lblUsername.setForeground(Color.BLACK);
 		lblUsername.setFont(new Font("Roboto", Font.PLAIN, 14));
 		lblUsername.setBounds(175, 100, 70, 19);
 		frame.getContentPane().add(lblUsername);
 		
 		JLabel lblPassword = new JLabel("Password");
-		lblPassword.setForeground(new Color(204, 255, 204));
+		lblPassword.setForeground(Color.BLACK);
 		lblPassword.setFont(new Font("Roboto", Font.PLAIN, 14));
 		lblPassword.setBounds(175, 154, 70, 19);
 		frame.getContentPane().add(lblPassword);
@@ -164,7 +164,7 @@ public class Login {
 		passwordField = new JPasswordField();
 		passwordField.setBounds(255, 154, 141, 20);
 		frame.getContentPane().add(passwordField);
-		frame.setBounds(100, 100, 369, 277);
+		frame.setBounds(100, 100, 611, 283);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		
@@ -230,17 +230,6 @@ public class Login {
 		});
 		button.setBounds(255, 206, 90, 23);
 		frame.getContentPane().add(button);
-		
-	
-		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setVerticalAlignment(SwingConstants.TOP);
-	
-
-		lblNewLabel.setIcon(new ImageIcon("D:\\Projects\\Universitetas\\Bakalaurinis\\Darbo uzmokescio skaiciavimo sistema\\src\\aboutus\\r.jpg"));
-		lblNewLabel.setBounds(0, 0, 620, 311);
-		frame.getContentPane().add(lblNewLabel);
 		
 	}
 	

@@ -56,7 +56,7 @@ public class LeaveReport extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1400, 750);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(153, 204, 153));
+		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -85,7 +85,6 @@ public class LeaveReport extends JFrame {
 			stmt = conn.createStatement();
 			stmt1 = conn.createStatement();
 		} catch (SQLException e2) {
-			// TODO Auto-generated catch block
 			e2.printStackTrace();
 		}
 		JButton btnShowAllEmployee = new JButton("Show Leave Report");
@@ -93,26 +92,18 @@ public class LeaveReport extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					
-				String sql = "(select (emp_id) Employee_ID,first_name First_Name ,last_name Last_Name,dept_id_emp Department_id,job_id_emp Job_id ,total_vac Total_Vacation_Leave, total_cas Total_Cassual_Leave,total_con Total_Convention_Leave,total_sick Total_Sick_Leave from employee,leave_vacation,leave_cassual,leave_convantion,leave_sick where emp_id = emp_id_vac && emp_id = emp_id_cas && emp_id= emp_id_con && emp_id= emp_id_sick group by  emp_id) ";
+				String sql = "(select (emp_id) Employee_ID,first_name First_Name ,last_name Last_Name,dept_id_emp Department_id,total_vac Total_Vacation_Leave, total_cas Total_Cassual_Leave,total_con Total_Convention_Leave,total_sick Total_Sick_Leave from employee,leave_vacation,leave_cassual,leave_convantion,leave_sick where emp_id = emp_id_vac && emp_id = emp_id_cas && emp_id= emp_id_con && emp_id= emp_id_sick group by  emp_id) ";
 										
 					rs=stmt.executeQuery(sql);
 					table.setModel(DbUtils.resultSetToTableModel(rs));
 					
 				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 			}
 		});
 		btnShowAllEmployee.setBounds(577, 66, 226, 23);
 		contentPane.add(btnShowAllEmployee);
-		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("D:\\Projects\\Universitetas\\Bakalaurinis\\Darbo uzmokescio skaiciavimo sistema\\src\\aboutus\\r.jpg"));
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setVerticalAlignment(SwingConstants.TOP);
-		lblNewLabel.setBounds(0, 0, 1428, 109);
-		contentPane.add(lblNewLabel);
 		
 		
 	}

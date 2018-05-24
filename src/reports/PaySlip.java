@@ -106,7 +106,7 @@ public class PaySlip extends JFrame implements Printable {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 440, 590);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(153, 204, 153));
+		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -451,13 +451,6 @@ public class PaySlip extends JFrame implements Printable {
 		srchfldEnterempId.setSearchMode(SearchMode.INSTANT);
 		srchfldEnterempId.setPrompt("Enter Employee ID\r\n");
 		contentPane.add(srchfldEnterempId);
-		
-		JLabel label_2 = new JLabel("");
-		label_2.setIcon(new ImageIcon("D:\\Projects\\Universitetas\\Bakalaurinis\\Darbo uzmokescio skaiciavimo sistema\\src\\aboutus\\r.jpg"));
-		label_2.setVerticalAlignment(SwingConstants.TOP);
-		label_2.setHorizontalAlignment(SwingConstants.CENTER);
-		label_2.setBounds(0, 0, 473, 600);
-		contentPane.add(label_2);
 	
 		
 		btnCancel.addActionListener(new ActionListener() {

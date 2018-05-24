@@ -31,8 +31,6 @@ import javax.swing.ImageIcon;
 public class Incentives extends JFrame {
 
 	private JPanel contentPane;
-	
-	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
@@ -81,7 +79,7 @@ public class Incentives extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 630, 430);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(153, 204, 153));
+		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -96,45 +94,35 @@ public class Incentives extends JFrame {
 		lblNewEntry.setFont(new Font("Roboto",Font.BOLD,18));
 		contentPane.add(lblNewEntry);
 		
-		JLabel lblEmployeeId = new JLabel("Salary ID");
-		lblEmployeeId.setBounds(10, 111, 81, 14);
-		contentPane.add(lblEmployeeId);
-		
 		JLabel lblDepartmentId = new JLabel("Employee ID");
-		lblDepartmentId.setBounds(10, 136, 81, 14);
+		lblDepartmentId.setBounds(10, 112, 81, 14);
 		contentPane.add(lblDepartmentId);
 		
 		JLabel lblJobId = new JLabel("First Name");
-		lblJobId.setBounds(10, 161, 81, 14);
+		lblJobId.setBounds(10, 137, 81, 14);
 		contentPane.add(lblJobId);
 		
 		JLabel lblEmployeeTypeId = new JLabel("Last Name");
-		lblEmployeeTypeId.setBounds(10, 186, 81, 14);
+		lblEmployeeTypeId.setBounds(10, 162, 81, 14);
 		contentPane.add(lblEmployeeTypeId);
-		
-		textField = new JTextField();
-		textField.setEditable(false);
-		textField.setBounds(80, 108, 187, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
 		textField_1.setEditable(false);
 		textField_1.setForeground(Color.RED);
 		textField_1.setFont(new Font("Tahoma", Font.BOLD, 11));
-		textField_1.setBounds(80, 133, 187, 20);
+		textField_1.setBounds(80, 109, 187, 20);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
 		
 		textField_2 = new JTextField();
 		textField_2.setEditable(false);
-		textField_2.setBounds(80, 158, 187, 20);
+		textField_2.setBounds(80, 134, 187, 20);
 		contentPane.add(textField_2);
 		textField_2.setColumns(10);
 		
 		textField_3 = new JTextField();
 		textField_3.setEditable(false);
-		textField_3.setBounds(80, 183, 187, 20);
+		textField_3.setBounds(80, 159, 187, 20);
 		contentPane.add(textField_3);
 		textField_3.setColumns(10);
 		
@@ -145,11 +133,11 @@ public class Incentives extends JFrame {
 		textField_4 = new JTextField();
 		textField_4.setEditable(false);
 		textField_4.setColumns(10);
-		textField_4.setBounds(80, 208, 187, 20);
+		textField_4.setBounds(80, 184, 187, 20);
 		contentPane.add(textField_4);
 		
 		JLabel lblJobTitle = new JLabel("Job title");
-		lblJobTitle.setBounds(10, 211, 81, 14);
+		lblJobTitle.setBounds(10, 187, 81, 14);
 		contentPane.add(lblJobTitle);
 		
 		JLabel lblIncentivesInfo = new JLabel("Incentives Info.");
@@ -286,7 +274,6 @@ public class Incentives extends JFrame {
 				
 				
 				} catch (SQLException e1) {
-						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
 			}
@@ -297,7 +284,6 @@ public class Incentives extends JFrame {
 		try {
 			stmt =conn.createStatement();
 		} catch (SQLException e2) {
-			// TODO Auto-generated catch block
 			e2.printStackTrace();
 		}
 		
@@ -327,7 +313,6 @@ public class Incentives extends JFrame {
 						if (!rs.isBeforeFirst()) {
 						    System.out.println("no data found");
 						    label.setText("No Record Found");
-						    textField.setText("");
 							textField_1.setText("");
 							textField_2.setText("");
 							textField_3.setText("");
@@ -349,7 +334,6 @@ public class Incentives extends JFrame {
 						while(rs.next()){
 							
 							label.setText("");
-							textField.setText(rs.getString("payroll_id"));
 							textField_1.setText(rs.getString("emp_id"));
 							textField_2.setText(rs.getString("first_name"));
 							textField_3.setText(rs.getString("last_name"));
@@ -380,7 +364,6 @@ public class Incentives extends JFrame {
 						
 						
 					} catch (SQLException e1) {
-						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					} 
 				
@@ -404,13 +387,6 @@ public class Incentives extends JFrame {
 		JLabel lblTotal = new JLabel("Total");
 		lblTotal.setBounds(445, 264, 52, 14);
 		contentPane.add(lblTotal);
-		
-		JLabel label_2 = new JLabel("");
-		label_2.setIcon(new ImageIcon("D:\\Projects\\Universitetas\\Bakalaurinis\\Darbo uzmokescio skaiciavimo sistema\\src\\aboutus\\r.jpg"));
-		label_2.setVerticalAlignment(SwingConstants.TOP);
-		label_2.setHorizontalAlignment(SwingConstants.CENTER);
-		label_2.setBounds(0, 0, 680, 439);
-		contentPane.add(label_2);
 		
 		
 		try {
@@ -464,7 +440,6 @@ public class Incentives extends JFrame {
 				
 				
 			} catch (SQLException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 				

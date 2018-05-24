@@ -76,8 +76,7 @@ public class LeaveSetting extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 360, 400);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(153, 204, 153));
-		//contentPane.setBackground(SystemColor.activeCaption);
+		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -228,13 +227,6 @@ public class LeaveSetting extends JFrame {
 		lblNewLabel.setBounds(76, 333, 187, 14);
 		contentPane.add(lblNewLabel);
 		
-		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon("D:\\Projects\\Universitetas\\Bakalaurinis\\Darbo uzmokescio skaiciavimo sistema\\src\\aboutus\\r.jpg"));
-		label.setVerticalAlignment(SwingConstants.TOP);
-		label.setHorizontalAlignment(SwingConstants.CENTER);
-		label.setBounds(0, 0, 405, 407);
-		contentPane.add(label);
-		
 		try {
 			stmt = conn.createStatement();
 		} catch (SQLException e2) {
@@ -276,7 +268,6 @@ public class LeaveSetting extends JFrame {
 					
 						
 					} catch (SQLException e1) {
-						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
 					
@@ -339,7 +330,6 @@ public class LeaveSetting extends JFrame {
 						}
 						
 						}catch (SQLException e1) {
-							// TODO Auto-generated catch block
 							e1.printStackTrace();
 						}
 						
@@ -371,7 +361,6 @@ public class LeaveSetting extends JFrame {
 					}
 					
 					}catch (SQLException e1) {
-						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
 					
@@ -390,7 +379,6 @@ public class LeaveSetting extends JFrame {
 					lblNewLabel.setText("Record Updated Successfully");
 				
 				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 			

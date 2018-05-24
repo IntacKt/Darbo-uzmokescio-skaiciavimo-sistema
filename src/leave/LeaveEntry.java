@@ -40,8 +40,6 @@ public class LeaveEntry extends JFrame{
 
 
 	private JPanel contentPane;
-	
-	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
@@ -102,8 +100,7 @@ public class LeaveEntry extends JFrame{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(500, 100, 640, 530);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(153, 204, 153));
-		//contentPane.setBackground(SystemColor.activeCaption);
+		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -118,29 +115,20 @@ public class LeaveEntry extends JFrame{
 	lblNewEntry.setFont(new Font("Roboto",Font.BOLD,18));
 	contentPane.add(lblNewEntry);
 	
-	JLabel lblEmployeeId = new JLabel("Leave ID");
-	lblEmployeeId.setBounds(38, 127, 77, 14);
-	contentPane.add(lblEmployeeId);
-	
 	JLabel lblDepartmentId = new JLabel("Employee ID");
-	lblDepartmentId.setBounds(38, 155, 89, 14);
+	lblDepartmentId.setBounds(38, 134, 89, 14);
 	contentPane.add(lblDepartmentId);
 	
 	JLabel lblJobId = new JLabel("First Name");
-	lblJobId.setBounds(38, 194, 89, 14);
+	lblJobId.setBounds(38, 173, 89, 14);
 	contentPane.add(lblJobId);
 	
 	JLabel lblEmployeeTypeId = new JLabel("Last Name");
-	lblEmployeeTypeId.setBounds(38, 238, 89, 20);
+	lblEmployeeTypeId.setBounds(38, 217, 89, 20);
 	contentPane.add(lblEmployeeTypeId);
 	
-	textField = new JTextField();
-	textField.setBounds(111, 127, 187, 20);
-	contentPane.add(textField);
-	textField.setColumns(10);
-	
 	textField_1 = new JTextField();
-	textField_1.setBounds(111, 152, 187, 20);
+	textField_1.setBounds(111, 131, 187, 20);
 	textField_1.setForeground(Color.RED);
 	textField_1.setFont(new Font("Tahoma", Font.BOLD, 11));
 	textField_1.setEditable(false);
@@ -148,13 +136,13 @@ public class LeaveEntry extends JFrame{
 	textField_1.setColumns(10);
 	
 	textField_2 = new JTextField();
-	textField_2.setBounds(111, 191, 187, 20);
+	textField_2.setBounds(111, 170, 187, 20);
 	textField_2.setEditable(false);
 	contentPane.add(textField_2);
 	textField_2.setColumns(10);
 	
 	textField_3 = new JTextField();
-	textField_3.setBounds(111, 235, 187, 20);
+	textField_3.setBounds(111, 214, 187, 20);
 	textField_3.setEditable(false);
 	contentPane.add(textField_3);
 	textField_3.setColumns(10);
@@ -162,13 +150,13 @@ public class LeaveEntry extends JFrame{
 
 	
 	textField_4 = new JTextField();
-	textField_4.setBounds(111, 269, 187, 20);
+	textField_4.setBounds(111, 248, 187, 20);
 	textField_4.setEditable(false);
 	textField_4.setColumns(10);
 	contentPane.add(textField_4);
 	
 	JLabel lblJobTitle = new JLabel("Job title");
-	lblJobTitle.setBounds(38, 269, 45, 20);
+	lblJobTitle.setBounds(38, 248, 45, 20);
 	contentPane.add(lblJobTitle);
 	
 	
@@ -234,6 +222,7 @@ public class LeaveEntry extends JFrame{
 	contentPane.add(lblComment);
 	
 	JTextArea textArea = new JTextArea();
+	textArea.setBackground(Color.LIGHT_GRAY);
 	textArea.setBounds(419, 365, 163, 69);
 	contentPane.add(textArea);
 
@@ -254,7 +243,6 @@ public class LeaveEntry extends JFrame{
 	try {
 		stmt  = conn.createStatement();
 	} catch (SQLException e2) {
-		// TODO Auto-generated catch block
 		e2.printStackTrace();
 	}
 	srchfldEnterempId.addActionListener(new ActionListener() {
@@ -272,7 +260,6 @@ public class LeaveEntry extends JFrame{
 					if (!rs.isBeforeFirst()) {
 					    System.out.println("no data found");
 					    label.setText("No Record Found");
-					    textField.setText("");
 						textField_1.setText("");
 						textField_2.setText("");
 						textField_3.setText("");
@@ -292,7 +279,6 @@ public class LeaveEntry extends JFrame{
 						
 					while(rs.next()){
 						label.setText("");
-						textField.setText(rs.getString("leave_id"));
 						comboBox.setSelectedItem(rs.getString("leave_type"));
 						dateChooser.setDate(rs.getDate("starting_leave"));
 						dateChooser_1.setDate(rs.getDate("ending_leave"));
@@ -318,12 +304,8 @@ public class LeaveEntry extends JFrame{
 					}			
 					
 				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				} 
-		
-			
-		
 		}
 	});
 	
@@ -336,7 +318,6 @@ public class LeaveEntry extends JFrame{
 	try {
 		stmt1 = conn.createStatement();
 	} catch (SQLException e2) {
-		// TODO Auto-generated catch block
 		e2.printStackTrace();
 	}
 	JButton btnSave = new JButton("Save");
@@ -384,20 +365,12 @@ public class LeaveEntry extends JFrame{
 							
 				stmt1.executeUpdate(sql);
 			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 		
 		}
 	});
 	contentPane.add(btnSave);
-	
-	JLabel label_2 = new JLabel("");
-	label_2.setIcon(new ImageIcon("D:\\Projects\\Universitetas\\Bakalaurinis\\Darbo uzmokescio skaiciavimo sistema\\src\\aboutus\\r.jpg"));
-	label_2.setHorizontalAlignment(SwingConstants.CENTER);
-	label_2.setVerticalAlignment(SwingConstants.TOP);
-	label_2.setBounds(0, 0, 708, 563);
-	contentPane.add(label_2);
 	
 
 	

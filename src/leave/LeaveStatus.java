@@ -36,9 +36,6 @@ import javax.swing.ImageIcon;
 public class LeaveStatus extends JFrame {
 
 	private JPanel contentPane;
-	
-	
-	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
@@ -105,8 +102,7 @@ public class LeaveStatus extends JFrame {
 		setBounds(100, 100, 600, 450);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setBackground(new Color(153, 204, 153));
-		//contentPane.setBackground(SystemColor.activeCaption);
+		contentPane.setBackground(Color.WHITE);
 		
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -122,29 +118,20 @@ public class LeaveStatus extends JFrame {
 		lblNewEntry.setFont(new Font("Roboto",Font.BOLD,18));
 		contentPane.add(lblNewEntry);
 		
-		JLabel lblEmployeeId = new JLabel("Deduction  ID");
-		lblEmployeeId.setBounds(10, 119, 97, 14);
-		contentPane.add(lblEmployeeId);
-		
 		JLabel lblDepartmentId = new JLabel("Employee ID");
-		lblDepartmentId.setBounds(10, 147, 97, 14);
+		lblDepartmentId.setBounds(16, 122, 97, 14);
 		contentPane.add(lblDepartmentId);
 		
 		JLabel lblJobId = new JLabel("First Name");
-		lblJobId.setBounds(10, 186, 97, 14);
+		lblJobId.setBounds(16, 161, 97, 14);
 		contentPane.add(lblJobId);
 		
 		JLabel lblEmployeeTypeId = new JLabel("Last Name");
-		lblEmployeeTypeId.setBounds(10, 230, 89, 20);
+		lblEmployeeTypeId.setBounds(16, 205, 89, 20);
 		contentPane.add(lblEmployeeTypeId);
 		
-		textField = new JTextField();
-		textField.setBounds(93, 119, 187, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
-		
 		textField_1 = new JTextField();
-		textField_1.setBounds(93, 144, 187, 20);
+		textField_1.setBounds(99, 119, 187, 20);
 		textField_1.setForeground(Color.RED);
 		textField_1.setFont(new Font("Tahoma", Font.BOLD, 11));
 		textField_1.setEditable(false);
@@ -152,13 +139,13 @@ public class LeaveStatus extends JFrame {
 		textField_1.setColumns(10);
 		
 		textField_2 = new JTextField();
-		textField_2.setBounds(93, 183, 187, 20);
+		textField_2.setBounds(99, 158, 187, 20);
 		textField_2.setEditable(false);
 		contentPane.add(textField_2);
 		textField_2.setColumns(10);
 		
 		textField_3 = new JTextField();
-		textField_3.setBounds(93, 227, 187, 20);
+		textField_3.setBounds(99, 202, 187, 20);
 		textField_3.setEditable(false);
 		contentPane.add(textField_3);
 		textField_3.setColumns(10);
@@ -166,13 +153,13 @@ public class LeaveStatus extends JFrame {
 
 		
 		textField_4 = new JTextField();
-		textField_4.setBounds(93, 261, 187, 20);
+		textField_4.setBounds(99, 236, 187, 20);
 		textField_4.setEditable(false);
 		textField_4.setColumns(10);
 		contentPane.add(textField_4);
 		
 		JLabel lblJobTitle = new JLabel("Job title");
-		lblJobTitle.setBounds(10, 261, 46, 20);
+		lblJobTitle.setBounds(16, 236, 46, 20);
 		contentPane.add(lblJobTitle);
 		
 		
@@ -195,11 +182,11 @@ public class LeaveStatus extends JFrame {
 		JComboBox comboBox = new JComboBox(l);
 		
 		
-		comboBox.setBounds(93, 292, 187, 20);
+		comboBox.setBounds(99, 267, 187, 20);
 		contentPane.add(comboBox);
 		
 		JLabel lblLeaveType = new JLabel("Leave Type");
-		lblLeaveType.setBounds(10, 295, 97, 14);
+		lblLeaveType.setBounds(16, 270, 97, 14);
 		contentPane.add(lblLeaveType);
 		
 		JLabel lblJanuary = new JLabel("January");
@@ -332,7 +319,6 @@ public class LeaveStatus extends JFrame {
 			stmt4 = conn.createStatement();
 			stmt5 = conn.createStatement();
 		} catch (SQLException e2) {
-			// TODO Auto-generated catch block
 			e2.printStackTrace();
 		}
 		JLabel label = new JLabel("");
@@ -354,7 +340,6 @@ public class LeaveStatus extends JFrame {
 						if (!rs.isBeforeFirst()) {
 						    System.out.println("no data found");
 						    label.setText("No Record Found");
-						    textField.setText("");
 							textField_1.setText("");
 							textField_2.setText("");
 							textField_3.setText("");
@@ -381,7 +366,6 @@ public class LeaveStatus extends JFrame {
 						else {
 						while(rs.next()){
 							label.setText("");
-							textField.setText(rs.getString("leave_id"));
 							comboBox.setSelectedItem(rs.getString("leave_type"));
 							textField_1.setText(rs.getString("emp_id"));
 							textField_2.setText(rs.getString("first_name"));
@@ -403,7 +387,6 @@ public class LeaveStatus extends JFrame {
 						}
 				}
 					 catch (SQLException e1) {
-						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					} 
 				
@@ -445,7 +428,6 @@ public class LeaveStatus extends JFrame {
 						e1.printStackTrace();
 					}
 				}
-					//String lt1 = comboBox.getSelectedItem().toString();
 					if(lt == "Vacation Leave"){
 							try{
 							String sql1 = "Select * from leave_vacation where emp_id_vac = '"+srchfldEnterempId.getText().toString()+"'";
@@ -470,7 +452,6 @@ public class LeaveStatus extends JFrame {
 							
 						}
 					}catch (SQLException e1) {
-								// TODO Auto-generated catch block
 								e1.printStackTrace();
 							}
 						
@@ -497,7 +478,6 @@ public class LeaveStatus extends JFrame {
 						
 					}
 				}catch (SQLException e1) {
-							// TODO Auto-generated catch block
 							e1.printStackTrace();
 						}
 					
@@ -527,7 +507,6 @@ public class LeaveStatus extends JFrame {
 						
 					}
 				}catch (SQLException e1) {
-							// TODO Auto-generated catch block
 							e1.printStackTrace();
 						}
 					
@@ -579,7 +558,6 @@ public class LeaveStatus extends JFrame {
 		try {
 			stmt1 = conn.createStatement();
 		} catch (SQLException e2) {
-			// TODO Auto-generated catch block
 			e2.printStackTrace();
 		}
 		
@@ -598,7 +576,6 @@ public class LeaveStatus extends JFrame {
 							label_1.setText("Record Updated Successfully");
 						
 						} catch (SQLException e1) {
-							// TODO Auto-generated catch block
 							e1.printStackTrace();
 						}
 				}
@@ -612,7 +589,6 @@ public class LeaveStatus extends JFrame {
 							System.out.println(sql);
 							label_1.setText("Record Updated Successfully");
 						} catch (SQLException e1) {
-							// TODO Auto-generated catch block
 							e1.printStackTrace();
 						}
 				}
@@ -627,7 +603,6 @@ public class LeaveStatus extends JFrame {
 								
 								System.out.println(sql);
 							} catch (SQLException e1) {
-								// TODO Auto-generated catch block
 								e1.printStackTrace();
 							}
 					}
@@ -642,7 +617,6 @@ public class LeaveStatus extends JFrame {
 								System.out.println(sql);
 								label_1.setText("Record Updated Successfully");
 							} catch (SQLException e1) {
-								// TODO Auto-generated catch block
 								e1.printStackTrace();
 							}
 					}
@@ -650,13 +624,6 @@ public class LeaveStatus extends JFrame {
 		});
 		btnSave.setBounds(191, 356, 89, 23);
 		contentPane.add(btnSave);
-		
-		JLabel label_2 = new JLabel("");
-		label_2.setIcon(new ImageIcon("D:\\Projects\\Universitetas\\Bakalaurinis\\Darbo uzmokescio skaiciavimo sistema\\src\\aboutus\\r.jpg"));
-		label_2.setVerticalAlignment(SwingConstants.TOP);
-		label_2.setHorizontalAlignment(SwingConstants.CENTER);
-		label_2.setBounds(0, 0, 658, 487);
-		contentPane.add(label_2);
 	
 		
 		btnCancel.addActionListener(new ActionListener() {

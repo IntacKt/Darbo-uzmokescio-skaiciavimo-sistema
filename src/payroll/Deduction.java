@@ -31,8 +31,6 @@ import javax.swing.ImageIcon;
 public class Deduction extends JFrame {
 
 	private JPanel contentPane;
-	
-	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
@@ -82,7 +80,7 @@ public class Deduction extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 550, 440);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(153, 204, 153));
+		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -97,44 +95,35 @@ public class Deduction extends JFrame {
 		lblNewEntry.setFont(new Font("Roboto",Font.BOLD,18));
 		contentPane.add(lblNewEntry);
 		
-		JLabel lblEmployeeId = new JLabel("Deduction  ID");
-		lblEmployeeId.setBounds(10, 118, 100, 14);
-		contentPane.add(lblEmployeeId);
-		
 		JLabel lblDepartmentId = new JLabel("Employee ID");
-		lblDepartmentId.setBounds(10, 146, 100, 14);
+		lblDepartmentId.setBounds(10, 119, 100, 14);
 		contentPane.add(lblDepartmentId);
 		
 		JLabel lblJobId = new JLabel("First Name");
-		lblJobId.setBounds(10, 171, 80, 14);
+		lblJobId.setBounds(10, 144, 80, 14);
 		contentPane.add(lblJobId);
 		
 		JLabel lblEmployeeTypeId = new JLabel("Last Name");
-		lblEmployeeTypeId.setBounds(10, 196, 100, 14);
+		lblEmployeeTypeId.setBounds(10, 169, 100, 14);
 		contentPane.add(lblEmployeeTypeId);
-		
-		textField = new JTextField();
-		textField.setBounds(93, 118, 187, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
 		textField_1.setForeground(Color.RED);
 		textField_1.setFont(new Font("Tahoma", Font.BOLD, 11));
 		textField_1.setEditable(false);
-		textField_1.setBounds(93, 143, 187, 20);
+		textField_1.setBounds(93, 116, 187, 20);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
 		
 		textField_2 = new JTextField();
 		textField_2.setEditable(false);
-		textField_2.setBounds(93, 168, 187, 20);
+		textField_2.setBounds(93, 141, 187, 20);
 		contentPane.add(textField_2);
 		textField_2.setColumns(10);
 		
 		textField_3 = new JTextField();
 		textField_3.setEditable(false);
-		textField_3.setBounds(93, 193, 187, 20);
+		textField_3.setBounds(93, 166, 187, 20);
 		contentPane.add(textField_3);
 		textField_3.setColumns(10);
 		
@@ -142,12 +131,12 @@ public class Deduction extends JFrame {
 		
 		textField_4 = new JTextField();
 		textField_4.setEditable(false);
-		textField_4.setBounds(93, 218, 187, 20);
+		textField_4.setBounds(93, 191, 187, 20);
 		textField_4.setColumns(10);
 		contentPane.add(textField_4);
 		
 		JLabel lblJobTitle = new JLabel("Job title");
-		lblJobTitle.setBounds(10, 221, 46, 14);
+		lblJobTitle.setBounds(10, 194, 46, 14);
 		contentPane.add(lblJobTitle);
 		
 		JLabel lblIncentivesInfo = new JLabel("Deduction information");
@@ -233,7 +222,6 @@ public class Deduction extends JFrame {
 		try {
 			stmt  = conn.createStatement();
 		} catch (SQLException e2) {
-			// TODO Auto-generated catch block
 			e2.printStackTrace();
 		}
 		
@@ -245,17 +233,15 @@ public class Deduction extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 
 				try {
-					String sql = "Select * from deduction d inner join employee e on d.emp_id_deduct = e.emp_id where d.emp_id_deduct = '"+srchfldEnterempId.getText().toString()+"' "; 
+					String sql = "Select * from deduction d inner join employee e on d.emp_id_deduct = e.emp_id where d.emp_id_deduct = "
+							+ "'"+srchfldEnterempId.getText().toString()+"' "; 
 						
-					
-					
 						rs = stmt.executeQuery(sql);
 						System.out.println(sql);
 						
 						if (!rs.isBeforeFirst()) {
 						    System.out.println("no data found");
 						    label.setText("No Record Found");
-						    textField.setText("");
 							textField_1.setText("");
 							textField_2.setText("");
 							textField_3.setText("");
@@ -273,7 +259,6 @@ public class Deduction extends JFrame {
 						else {
 						while(rs.next()){
 							
-							textField.setText(rs.getString("deduct_id"));
 							label.setText("");
 							textField_6.setText(rs.getString("pf"));
 							textField_9.setText(rs.getString("gpf"));
@@ -354,7 +339,13 @@ public class Deduction extends JFrame {
 		btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				 try {
-				String sql = "update deduction set deduct_id = '"+textField.getText().toString() +"' ,amount = '"+textField_14.getText().toString()+"', pf = '"+textField_6.getText().toString()+"',gpf='"+textField_9.getText().toString()+"',it='"+textField_11.getText().toString()+"',loan='"+textField_12.getText().toString()+"',insurance='"+textField_13.getText().toString()+"' where emp_id_deduct = '"+srchfldEnterempId.getText().toString()+"' ";
+				String sql = "update deduction amount = '"+textField_14.getText().toString()+
+						"', pf = '"+textField_6.getText().toString()+
+						"',gpf='"+textField_9.getText().toString()+
+						"',it='"+textField_11.getText().toString()+
+						"',loan='"+textField_12.getText().toString()+
+						"',insurance='"+textField_13.getText().toString()+
+						"' where emp_id_deduct = '"+srchfldEnterempId.getText().toString()+"' ";
 				
 				
 					System.out.print(sql);
@@ -362,7 +353,6 @@ public class Deduction extends JFrame {
 					
 					label_1.setText("Record Updated Successfully");
 				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 			
@@ -370,13 +360,6 @@ public class Deduction extends JFrame {
 		});
 		btnSave.setBounds(152, 318, 89, 23);
 		contentPane.add(btnSave);
-		
-		JLabel label_2 = new JLabel("");
-		label_2.setIcon(new ImageIcon("D:\\Projects\\Universitetas\\Bakalaurinis\\Darbo uzmokescio skaiciavimo sistema\\src\\aboutus\\r.jpg"));
-		label_2.setVerticalAlignment(SwingConstants.TOP);
-		label_2.setHorizontalAlignment(SwingConstants.CENTER);
-		label_2.setBounds(0, 0, 553, 424);
-		contentPane.add(label_2);
 		
 		
 		

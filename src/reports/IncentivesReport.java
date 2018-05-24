@@ -58,7 +58,7 @@ public class IncentivesReport extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1400, 750);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(153, 204, 153));
+		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -110,13 +110,6 @@ public class IncentivesReport extends JFrame {
 		});
 		btnShowAllEmployee.setBounds(591, 73, 226, 23);
 		contentPane.add(btnShowAllEmployee);
-		
-		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon("D:\\Projects\\Universitetas\\Bakalaurinis\\Darbo uzmokescio skaiciavimo sistema\\src\\aboutus\\r.jpg"));
-		label.setVerticalAlignment(SwingConstants.TOP);
-		label.setHorizontalAlignment(SwingConstants.CENTER);
-		label.setBounds(0, 0, 1429, 109);
-		contentPane.add(label);
 
 
 	}

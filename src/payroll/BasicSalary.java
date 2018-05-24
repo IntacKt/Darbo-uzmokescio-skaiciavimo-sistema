@@ -33,8 +33,6 @@ import javax.swing.ImageIcon;
 public class BasicSalary extends JFrame {
 
 	private JPanel contentPane;
-
-	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
@@ -75,7 +73,7 @@ public class BasicSalary extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 620, 300);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(153, 204, 153));
+		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
@@ -91,46 +89,37 @@ public class BasicSalary extends JFrame {
 		lblNewEntry.setFont(new Font("Roboto",Font.BOLD,18));
 		contentPane.add(lblNewEntry);
 		
-		JLabel lblEmployeeId = new JLabel("Payroll  ID");
-		lblEmployeeId.setBounds(10, 126, 60, 14);
-		contentPane.add(lblEmployeeId);
-		
 		JLabel lblDepartmentId = new JLabel("Employee ID");
-		lblDepartmentId.setBounds(10, 151, 89, 14);
+		lblDepartmentId.setBounds(21, 123, 89, 14);
 		contentPane.add(lblDepartmentId);
 		
 		JLabel lblJobId = new JLabel("First Name");
-		lblJobId.setBounds(10, 176, 89, 20);
+		lblJobId.setBounds(21, 148, 89, 20);
 		contentPane.add(lblJobId);
 		
 		JLabel lblEmployeeTypeId = new JLabel("Last Name");
-		lblEmployeeTypeId.setBounds(10, 210, 89, 20);
+		lblEmployeeTypeId.setBounds(21, 182, 89, 20);
 		contentPane.add(lblEmployeeTypeId);
 		
 		JLabel lblFirstName = new JLabel("Hours Worked");
 		lblFirstName.setBounds(312, 151, 96, 14);
 		contentPane.add(lblFirstName);
 		
-		textField = new JTextField();
-		textField.setBounds(80, 126, 187, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
-		
 		textField_1 = new JTextField();
 		textField_1.setEditable(false);
 		textField_1.setForeground(Color.RED);
 		textField_1.setFont(new Font("Tahoma", Font.BOLD, 11));
-		textField_1.setBounds(80, 151, 187, 20);
+		textField_1.setBounds(91, 123, 187, 20);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
-		
+
 		textField_2 = new JTextField();
-		textField_2.setBounds(80, 176, 187, 20);
+		textField_2.setBounds(91, 148, 187, 20);
 		contentPane.add(textField_2);
 		textField_2.setColumns(10);
-		
+
 		textField_3 = new JTextField();
-		textField_3.setBounds(80, 210, 187, 20);
+		textField_3.setBounds(91, 182, 187, 20);
 		contentPane.add(textField_3);
 		textField_3.setColumns(10);
 		
@@ -193,7 +182,6 @@ public class BasicSalary extends JFrame {
 						if (!rs.isBeforeFirst()) {
 						    System.out.println("no data found");
 						    label.setText("No Record Found");
-						    textField.setText("");
 							textField_1.setText("");
 							textField_2.setText("");
 							textField_3.setText("");
@@ -211,11 +199,8 @@ public class BasicSalary extends JFrame {
 						else {
 						while(rs.next()){
 							
-							label.setText("");
-							textField.setText(rs.getString("payroll_id"));
 							
-							
-							textField_4.setText("208");
+							textField_4.setText("160");
 						
 							
 							textField_1.setText(rs.getString("emp_id"));
@@ -284,7 +269,6 @@ public class BasicSalary extends JFrame {
 						
 						
 					} catch (SQLException e1) {
-						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					} 
 				
@@ -305,7 +289,6 @@ public class BasicSalary extends JFrame {
 		btnUpdate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				String p_id = textField.getText().toString();
 				String e_id = textField_1.getText().toString();
 				String fname = textField_2.getText().toString();
 				String lname = textField_3.getText().toString();
@@ -316,15 +299,13 @@ public class BasicSalary extends JFrame {
 				
 				try {
 					
-					String sql3  = "update payroll set payroll_id ='"+p_id+"', hrs_worked = '"+hw+"', deductions = '"+ded+"',netpay ='"+np+"' where emp_id = '"+srchfldEnterempId.getText().toString()+"' ";
+					String sql3  = "update payroll set hrs_worked = '"+hw+"', deductions = '"+ded+"',netpay ='"+np+"' where emp_id = '"+srchfldEnterempId.getText().toString()+"' ";
 					System.out.println(sql3);
 				//	stmt.execute(sql3);
 					//stmt.close();
 					
 					String sql4 = "update employee set first_name = '"+fname+"',last_name = '"+lname+"' where emp_id = '"+srchfldEnterempId.getText().toString()+"' ";
 					System.out.println(sql4);
-				//	stmt1.execute(sql4);
-				//	stmt1.close();
 					
 					String sql5 = "update job_title set job_title = '"+jt+"'";
 					
@@ -336,7 +317,6 @@ public class BasicSalary extends JFrame {
 					label_1.setText("Record Updated Successfully");
 				
 					} catch (SQLException e1) {
-						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
 			}
@@ -361,23 +341,11 @@ public class BasicSalary extends JFrame {
 		JSeparator separator_1 = new JSeparator(SwingConstants.VERTICAL);
 		separator_1.setBounds(288, 125, 2, 105);
 		contentPane.add(separator_1);
-		
-		JLabel label_2 = new JLabel("");
-		label_2.setIcon(new ImageIcon("D:\\Projects\\Universitetas\\Bakalaurinis\\Darbo uzmokescio skaiciavimo sistema\\src\\aboutus\\r.jpg"));
-		label_2.setVerticalAlignment(SwingConstants.TOP);
-		label_2.setHorizontalAlignment(SwingConstants.CENTER);
-		label_2.setBounds(0, 0, 647, 304);
-		contentPane.add(label_2);
 
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 			}
 		});
-
-		
-		
-
-	
 	}
 }

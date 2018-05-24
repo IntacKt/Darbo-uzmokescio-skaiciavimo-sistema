@@ -63,7 +63,7 @@ public class AllEmployee extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1400, 750);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(153, 204, 153));
+		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
@@ -92,34 +92,25 @@ public class AllEmployee extends JFrame {
 		try {
 			stmt = conn.createStatement();
 		} catch (SQLException e2) {
-			// TODO Auto-generated catch block
 			e2.printStackTrace();
 		}
 		JButton btnShowAllEmployee = new JButton("Show All Employee Details");
 		btnShowAllEmployee.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-				String sql = "select emp_id Employee_id, dept_id_emp  Department_Id,job_id_emp  Job_Id , type_id_emp Employee_Type_id, last_name Last_Name, first_name First_Name, dob Date_of_Birth, gender Gender, country Country,state State,city City,address Address, pincode Pincode,email Email,mobile_no Mobile from employee";
+				String sql = "select emp_id Employee_id, dept_id_emp  Department_Id, last_name Last_Name, first_name First_Name, dob Date_of_Birth, gender Gender, country Country,state State,city City,address Address, pincode Pincode,email Email,mobile_no Mobile from employee";
 				
 					rs=stmt.executeQuery(sql);
 					table.setModel(DbUtils.resultSetToTableModel(rs));
 					
 					
 				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 			}
 		});
 		btnShowAllEmployee.setBounds(591, 73, 226, 23);
 		contentPane.add(btnShowAllEmployee);
-		
-		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon("D:\\Projects\\Universitetas\\Bakalaurinis\\Darbo uzmokescio skaiciavimo sistema\\src\\aboutus\\r.jpg"));
-		label.setVerticalAlignment(SwingConstants.TOP);
-		label.setHorizontalAlignment(SwingConstants.CENTER);
-		label.setBounds(0, 0, 1428, 109);
-		contentPane.add(label);
 	
 	}
 }

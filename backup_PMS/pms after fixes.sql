@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 23, 2018 at 02:43 PM
+-- Generation Time: May 24, 2018 at 05:23 PM
 -- Server version: 5.7.19
 -- PHP Version: 5.6.31
 
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `bonus` (
 --
 
 INSERT INTO `bonus` (`emp_id_bonus`, `date`, `bonus_payment`, `note`, `bonus_type`) VALUES
-('102', '2017-06-09', 200, 'nice job', 'Annual'),
+('102', '2017-06-09', 400, 'nice job', 'Special'),
 ('103', '2017-03-10', 50, 'for working hard', 'annual'),
 ('104', '2018-01-01', 88, 'good', 'special'),
 ('105', '2018-02-02', 99, 'nice', 'special'),
@@ -134,14 +134,14 @@ INSERT INTO `employee` (`emp_id`, `dept_id_emp`, `last_name`, `first_name`, `dob
 ('1003', 'dt1003', 'skeet', 'jon', '1987-01-12', 'Male', 'U.S', 'NY', 'NYC', 'palo alto', 12456, 'jon@yahoo.com', '5588964725'),
 ('1004', 'dt1004', 'sunder', 'pichai', '1971-09-14', 'MAle', 'U.S', 'D.C', 'washington', 'Gplex', 445566, 'picha@gmail.com', '1324567890'),
 ('1005', 'dt1005', 'zuckerberg', 'mark', '1984-05-14', 'Male', 'U.S ', 'D.C', 'palo alto', 'HQ,FB', 889966, 'zuck@fb.com', '2012458950'),
-('102', '34KC', 'asd', 'qwer', '1991-05-07', 'Male', 'U.S', 'California', 'Auburn', 'asd', 395001, 'asd@gmail.com', '9033228796'),
+('102', '34KC', 'asd', 'qwer', '1991-05-07', 'Male', 'U.S', 'California', 'Los Angeles', 'asd', 395001, 'asd@gmail.com', '9033228796'),
 ('103', '28KU', 'asd', 'qwe', '1987-01-12', 'Male', 'U.S', 'Alabama', 'Chicago', 'palo alto', 12456, 'asd@yahoo.com', '5588964725'),
 ('104', '25KE', 'asd', 'qwe', '1971-09-14', 'Female', 'U.S', 'D.C', 'washington', 'Gplex', 445566, 'asd@gmail.com', '1324567890'),
 ('105', '34KC', 'asd', 'qwe', '1984-05-14', 'Female', 'U.S', 'Wisconsin', 'New York', 'HQ,FB', 889966, 'asd@fb.com', '2012458950'),
 ('106', '28KU', 'asd', 'qwe', '1995-09-17', 'Male', 'Lithuania', 'Vilnius City Municipality', 'Vilnius', 'asd', 395001, 'asd@gmail.com', '8866263371'),
 ('107', '107dt', 'asd', 'qwe', '1991-05-07', 'Male', 'U.S', 'Alabama', 'Auburn', 'asd', 395001, 'asd@gmail.com', '9033228796'),
 ('108', '108dt', 'asd', 'qwe', '1987-01-12', 'Male', 'U.S', 'NY', 'NYC', 'palo alto', 12456, 'asd@yahoo.com', '5588964725'),
-('109', '109dt', 'asd', 'qwe', '1971-09-14', 'MAle', 'U.S', 'D.C', 'washington', 'Gplex', 445566, 'asd@gmail.com', '1324567890'),
+('109', '30KA', 'asd', 'qwe', '1971-09-14', 'Female', 'U.S', 'Virginia', 'Las Vegas', 'Gplex', 445566, 'asd@gmail.com', '1324567890'),
 ('110', '25KE', 'asd', 'qwe', '1984-05-14', 'Female', 'India', 'Jharkhand', 'Raleigh', 'HQ,FB', 889966, 'asd@fb.com', '2012458950'),
 ('111', '111dt', 'asd', 'qwe', '1971-09-14', 'MAle', 'U.S', 'D.C', 'washington', 'Gplex', 445566, 'asd@gmail.com', '1324567890'),
 ('112', '112dt', 'asd', 'qwe', '1984-05-14', 'Female', 'U.S ', 'D.C', 'palo alto', 'HQ,FB', 889966, 'asd@fb.com', '2012458950');
@@ -221,7 +221,8 @@ INSERT INTO `incentives` (`emp_id_ins`, `hra`, `da`, `cca`, `ta`, `medical`, `to
 ('110', '2400.0', '600.0', '600.0', '600.0', '600.0', '4800.0'),
 ('111', '1900.0', '450.0', '450.0', '450.0', '450.0', '3700.0'),
 ('112', '2400.0', '600.0', '600.0', '600.0', '600.0', '4800.0'),
-('102', '0.0', '0.0', '0.0', '0.0', '0.0', '0.0');
+('102', '0.0', '0.0', '0.0', '0.0', '0.0', '0.0'),
+('102', '34.25', '68.5', '102.75', '137.0', '13.7', '356.2');
 
 -- --------------------------------------------------------
 
@@ -381,7 +382,7 @@ INSERT INTO `leave_details` (`emp_id_leave`, `leave_type`, `starting_leave`, `en
 ('104', 'Sick Leave', '2018-01-04', '2018-10-05', '50', 'please Grant Leave', '2'),
 ('105', 'Sick Leave', '2018-01-05', '2018-10-06', '50', 'please Grant Leave', '2'),
 ('106', 'Sick Leave', '2018-01-01', '2018-01-02', '50', 'please Grant Leave', '2'),
-('107', 'Sick Leave', '2018-01-02', '2018-10-03', '50', 'please Grant Leave', '2'),
+('107', 'Vacation Leave', '2018-01-02', '2018-10-03', '50', 'please Grant Leave', '2'),
 ('108', 'Sick Leave', '2018-01-03', '2018-10-04', '50', 'please Grant Leave', '2'),
 ('109', 'Sick Leave', '2018-01-04', '2018-10-05', '50', 'please Grant Leave', '2'),
 ('110', 'Sick Leave', '2018-01-05', '2018-10-06', '50', 'please Grant Leave', '2'),
@@ -472,7 +473,7 @@ INSERT INTO `leave_total` (`leave_type`, `jan`, `feb`, `mar`, `apr`, `may`, `jun
 ('Cassual Leave', 8, 8, 8, 5, 15, 4, 8, 8, 6, 6, 15, 6),
 ('Convention Leave', 7, 4, 6, 61, 6, 3, 8, 5, 12, 5, 12, 4),
 ('Sick Leave', 15, 51, 6, 32, 2, 1, 14, 33, 11, 5, 3, 5),
-('Vacation Leave', 3, 3, 2, 4, 6, 5, 3, 3, 1, 4, 46, 9);
+('Vacation Leave', 2, 2, 21, 12, 16, 8, 2, 2, 4, 6, 10, 8);
 
 -- --------------------------------------------------------
 
