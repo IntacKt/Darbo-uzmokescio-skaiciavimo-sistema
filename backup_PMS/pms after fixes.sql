@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 24, 2018 at 05:23 PM
+-- Generation Time: May 25, 2018 at 02:04 PM
 -- Server version: 5.7.19
 -- PHP Version: 5.6.31
 
@@ -21,6 +21,30 @@ SET time_zone = "+00:00";
 --
 -- Database: `pms`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `archived_records`
+--
+
+DROP TABLE IF EXISTS `archived_records`;
+CREATE TABLE IF NOT EXISTS `archived_records` (
+  `emp_id` varchar(10) CHARACTER SET utf8 NOT NULL,
+  `dept_id_emp` varchar(45) CHARACTER SET utf8 DEFAULT NULL,
+  `last_name` text CHARACTER SET utf8,
+  `first_name` text CHARACTER SET utf8,
+  `dob` date DEFAULT NULL,
+  `gender` text CHARACTER SET utf8,
+  `country` text CHARACTER SET utf8,
+  `state` text CHARACTER SET utf8,
+  `city` text CHARACTER SET utf8,
+  `address` text CHARACTER SET utf8,
+  `pincode` int(6) DEFAULT NULL,
+  `email` varchar(45) CHARACTER SET utf8 DEFAULT NULL,
+  `mobile_no` varchar(10) CHARACTER SET utf8 DEFAULT NULL,
+  PRIMARY KEY (`emp_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
