@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 25, 2018 at 02:04 PM
+-- Generation Time: May 27, 2018 at 05:03 PM
 -- Server version: 5.7.19
 -- PHP Version: 5.6.31
 
@@ -78,7 +78,6 @@ INSERT INTO `bonus` (`emp_id_bonus`, `date`, `bonus_payment`, `note`, `bonus_typ
 ('110', '2018-01-02', 88, 'good', 'special'),
 ('111', '2018-02-03', 99, 'nice', 'special'),
 ('112', '2018-03-04', 77, 'perfect', 'annual'),
-('1001', '2015-10-15', 5000, 'good', 'diwali'),
 ('1002', '2015-10-08', 1500, 'nice', 'special'),
 ('1003', '2015-08-15', 5600, 'Very Good', 'annual'),
 ('1004', '2014-09-15', 4500, 'nice', 'diwali'),
@@ -153,7 +152,6 @@ CREATE TABLE IF NOT EXISTS `employee` (
 --
 
 INSERT INTO `employee` (`emp_id`, `dept_id_emp`, `last_name`, `first_name`, `dob`, `gender`, `country`, `state`, `city`, `address`, `pincode`, `email`, `mobile_no`) VALUES
-('1001', 'dt1001', 'Shah', 'Vimox', '1995-09-17', 'Male', 'India', 'Gujarat', 'Surat', 'Majuragate', 395001, 'vmox@gmail.com', '8866263371'),
 ('1002', 'dt1002', 'shah', 'Jay', '1991-05-07', 'Male', 'India', 'Gujarat', 'Surat', 'Majuragate', 395001, 'jay@gmail.com', '9033228796'),
 ('1003', 'dt1003', 'skeet', 'jon', '1987-01-12', 'Male', 'U.S', 'NY', 'NYC', 'palo alto', 12456, 'jon@yahoo.com', '5588964725'),
 ('1004', 'dt1004', 'sunder', 'pichai', '1971-09-14', 'MAle', 'U.S', 'D.C', 'washington', 'Gplex', 445566, 'picha@gmail.com', '1324567890'),
@@ -200,7 +198,6 @@ INSERT INTO `hourly` (`emp_id_hr`, `hr_rate`, `note`) VALUES
 ('110', 4, 'Good'),
 ('111', 7, 'Good'),
 ('112', 4, 'Good'),
-('1001', 1000, 'Good'),
 ('1002', 1250, 'Good'),
 ('1003', 750, 'Good'),
 ('1004', 1500, 'Good'),
@@ -652,70 +649,10 @@ ALTER TABLE `bonus`
   ADD CONSTRAINT `emp_id_bonus` FOREIGN KEY (`emp_id_bonus`) REFERENCES `employee` (`emp_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `deduction`
---
-ALTER TABLE `deduction`
-  ADD CONSTRAINT `emp_id_deduct` FOREIGN KEY (`emp_id_deduct`) REFERENCES `employee` (`emp_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
 -- Constraints for table `hourly`
 --
 ALTER TABLE `hourly`
   ADD CONSTRAINT `emp_id_hr` FOREIGN KEY (`emp_id_hr`) REFERENCES `employee` (`emp_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `incentives`
---
-ALTER TABLE `incentives`
-  ADD CONSTRAINT `emp_id_ins` FOREIGN KEY (`emp_id_ins`) REFERENCES `employee` (`emp_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `job_title`
---
-ALTER TABLE `job_title`
-  ADD CONSTRAINT `emp_id_job` FOREIGN KEY (`emp_id_job`) REFERENCES `employee` (`emp_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `leave_cassual`
---
-ALTER TABLE `leave_cassual`
-  ADD CONSTRAINT `emp_id_cas` FOREIGN KEY (`emp_id_cas`) REFERENCES `employee` (`emp_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `leave_convantion`
---
-ALTER TABLE `leave_convantion`
-  ADD CONSTRAINT `emp-id_con` FOREIGN KEY (`emp_id_con`) REFERENCES `employee` (`emp_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `leave_details`
---
-ALTER TABLE `leave_details`
-  ADD CONSTRAINT `emp_id_leave` FOREIGN KEY (`emp_id_leave`) REFERENCES `employee` (`emp_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `leave_sick`
---
-ALTER TABLE `leave_sick`
-  ADD CONSTRAINT `emp_id_sick` FOREIGN KEY (`emp_id_sick`) REFERENCES `employee` (`emp_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `leave_vacation`
---
-ALTER TABLE `leave_vacation`
-  ADD CONSTRAINT `emp_id_vac` FOREIGN KEY (`emp_id_vac`) REFERENCES `employee` (`emp_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `payroll`
---
-ALTER TABLE `payroll`
-  ADD CONSTRAINT `emp_id` FOREIGN KEY (`emp_id`) REFERENCES `employee` (`emp_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `salary`
---
-ALTER TABLE `salary`
-  ADD CONSTRAINT `emp_id_salary` FOREIGN KEY (`emp_id_salary`) REFERENCES `employee` (`emp_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

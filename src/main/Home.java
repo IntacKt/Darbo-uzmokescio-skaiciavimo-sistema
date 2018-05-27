@@ -641,44 +641,5 @@ public class Home extends JFrame {
 			}
 		});
 		mnReport.add(mntmPaySlip);
-		
-		
-		JMenu mnHelp = new JMenu("Help");
-		menuBar.add(mnHelp);
-		mnHelp.setFont(new Font("Roboto", Font.PLAIN, 12));
-		
-		JMenuItem mntmAboutUs = new JMenuItem("About");
-		mntmAboutUs.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				About ab = new About();
-				ab.setVisible(true);
-				ab.setResizable(false);
-				ab.setTitle("About");
-				ab.setLocationRelativeTo(null);
-				
-				  WindowAdapter exitListener = new WindowAdapter() {
-
-			            @Override
-			            public void windowClosing(WindowEvent e) {
-			                int confirm = JOptionPane.showOptionDialog(ab,
-			                        "Are you sure you want to close this window?",
-			                        "Exit Confirmation", JOptionPane.YES_NO_CANCEL_OPTION,
-			                        JOptionPane.QUESTION_MESSAGE, null, null, null);
-			                if(confirm == JOptionPane.YES_OPTION){
-			                   ab.setDefaultCloseOperation(DISPOSE_ON_CLOSE);//yes
-
-			                } else if (confirm == JOptionPane.CANCEL_OPTION) {
-			                    ab.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);//cancel
-			                } else {
-			                    ab.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);//no
-			                }
-			            }
-			        };
-			     ab. addWindowListener(exitListener);
-				
-			}
-		});
-		mnHelp.add(mntmAboutUs);
 	}
 }

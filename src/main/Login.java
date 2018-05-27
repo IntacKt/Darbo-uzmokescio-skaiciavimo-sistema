@@ -169,7 +169,7 @@ public class Login {
 		
 		
 		JButton button = new JButton("Login");
-		button.setBackground(new Color(102, 204, 204));
+		button.setBackground(Color.WHITE);
 		button.setFont(new Font("Raleway", Font.BOLD, 13));
 		button.setForeground(Color.BLACK);
 		button.addActionListener(new ActionListener() {
