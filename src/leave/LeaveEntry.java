@@ -200,30 +200,30 @@ public class LeaveEntry extends JFrame{
 	contentPane.add(dateChooser);
 	
 	JLabel lblTo = new JLabel("TO");
-	lblTo.setBounds(456, 249, 63, 14);
+	lblTo.setBounds(493, 238, 63, 14);
 	contentPane.add(lblTo);
 	
 	JDateChooser dateChooser_1 = new JDateChooser();
-	dateChooser_1.setBounds(419, 274, 163, 20);
+	dateChooser_1.setBounds(419, 263, 163, 20);
 	dateChooser_1.setDateFormatString("yyyy-MM-dd");
 	contentPane.add(dateChooser_1);
 	
 	textField_14 = new JTextField();
-	textField_14.setBounds(419, 315, 163, 20);
+	textField_14.setBounds(419, 304, 163, 20);
 	contentPane.add(textField_14);
 	textField_14.setColumns(10);
 	
 	JLabel lblBalanceLeave = new JLabel("Balance Leave");
-	lblBalanceLeave.setBounds(332, 318, 103, 14);
+	lblBalanceLeave.setBounds(332, 307, 103, 14);
 	contentPane.add(lblBalanceLeave);
 	
 	JLabel lblComment = new JLabel("Comment");
-	lblComment.setBounds(346, 367, 56, 14);
+	lblComment.setBounds(346, 356, 56, 14);
 	contentPane.add(lblComment);
 	
 	JTextArea textArea = new JTextArea();
 	textArea.setBackground(Color.LIGHT_GRAY);
-	textArea.setBounds(419, 365, 163, 69);
+	textArea.setBounds(419, 354, 163, 69);
 	contentPane.add(textArea);
 
 	

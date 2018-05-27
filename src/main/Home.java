@@ -76,7 +76,7 @@ public class Home extends JFrame {
 	public Home() {
 		getContentPane().setBackground(Color.WHITE);
 		
-		setBounds(0, 0, 741, 529);
+		setBounds(0, 0, 1012, 711);
 		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);

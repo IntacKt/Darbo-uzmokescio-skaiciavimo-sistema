@@ -142,7 +142,7 @@ public class DeleteRecord extends JFrame {
 		rdbtnMale.setActionCommand("Male");
 		JRadioButton rdbtnFemale = new JRadioButton("Female");
 		rdbtnFemale.setActionCommand("Female");
-		rdbtnMale.setBounds(139, 374, 55, 23);
+		rdbtnMale.setBounds(139, 374, 79, 23);
 		ButtonGroup bG = new ButtonGroup();
 	     bG.add(rdbtnMale);
 	     bG.add(rdbtnFemale);
@@ -150,7 +150,7 @@ public class DeleteRecord extends JFrame {
 	    
 		
 		
-		rdbtnFemale.setBounds(218, 374, 59, 23);
+		rdbtnFemale.setBounds(248, 374, 79, 23);
 		contentPane.add(rdbtnMale);
 		contentPane.add(rdbtnFemale);
 		
