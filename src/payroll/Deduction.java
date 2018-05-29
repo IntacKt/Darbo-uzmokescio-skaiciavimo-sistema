@@ -288,7 +288,6 @@ public class Deduction extends JFrame {
 						
 						
 					} }catch (SQLException e1) {
-						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					} 
 			
@@ -327,7 +326,6 @@ public class Deduction extends JFrame {
 		try {
 			stmt1 = conn.createStatement();
 		} catch (SQLException e2) {
-			// TODO Auto-generated catch block
 			e2.printStackTrace();
 		}
 		
@@ -339,7 +337,7 @@ public class Deduction extends JFrame {
 		btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				 try {
-				String sql = "update deduction amount = '"+textField_14.getText().toString()+
+				String sql = "update deduction set amount = '"+textField_14.getText().toString()+
 						"', pf = '"+textField_6.getText().toString()+
 						"',gpf='"+textField_9.getText().toString()+
 						"',it='"+textField_11.getText().toString()+

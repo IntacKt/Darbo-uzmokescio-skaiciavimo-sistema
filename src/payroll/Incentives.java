@@ -392,7 +392,6 @@ public class Incentives extends JFrame {
 		try {
 			stmt1 = conn.createStatement();
 		} catch (SQLException e2) {
-			// TODO Auto-generated catch block
 			e2.printStackTrace();
 		}
 		btnCalculate.addActionListener(new ActionListener() {
