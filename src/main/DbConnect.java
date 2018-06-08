@@ -7,7 +7,7 @@ public class DbConnect {
 	
 	public static Connection doConnect(){
 		
-		String host = "jdbc:mysql://localhost:3306/pms"; 
+		String host = "jdbc:mysql://localhost:3306/scs"; 
         String uName = "root";
         String uPass = "";
         
